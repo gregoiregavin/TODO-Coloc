@@ -357,3 +357,11 @@ a:focus {
   margin-top: 4px;
 }
 
+.user {
+  display: flex;
+
+  align-self: flex-end;
+
+  margin: 8px 16px 0;
+  font-weight: bold;
+}
