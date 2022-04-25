@@ -3,8 +3,24 @@ import { TasksCollection } from '../api/TasksCollection';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
+import "./Login.js";
 
 const HIDE_COMPLETED_STRING = 'hideCompleted';
+
+const getUser = () => Meteor.user();
+const isUserLogged = () => !!getUser();
+
+const getTasksFilter = () => {
+  const user = getUser();
+
+  const hideCompletedFilter = { isChecked: { $ne: true } };
+
+  const userFilter = user ? { userId: user._id } : {};
+
+  const pendingOnlyFilter = { ...hideCompletedFilter, ...userFilter };
+
+  return { userFilter, pendingOnlyFilter };
+};
 
 Template.mainContainer.onCreated(function mainContainerOnCreated() {
   this.state = new ReactiveDict();
@@ -35,6 +51,9 @@ Template.mainContainer.helpers({
     const incompleteTasksCount = TasksCollection.find({ isChecked: { $ne: true } }).count();
     return incompleteTasksCount ? `(${incompleteTasksCount})` : '';
   },
+  isUserLogged() {
+    return isUserLogged();
+  }
 });
 
 Template.form.events({
