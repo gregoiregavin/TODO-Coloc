@@ -22,7 +22,7 @@ Meteor.startup(() => {
 
  
 Meteor.startup(() => {
-  if (CollocationCollection.find())) {
+  if (CollocationCollection.find()) {
     [
       'First Collocation',
       'Second Collocation',
