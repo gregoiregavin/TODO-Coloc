@@ -40,6 +40,12 @@
                 {{/each}}
             </ul>
 
+            <ul class="collocations">
+                {{#each collocations}}
+                    {{> collocation}}
+                {{/each}}
+            </ul>
+
         </div>
     </div>
 </template>
@@ -49,4 +55,9 @@
         <input type="text" name="text" placeholder="Type to add new tasks" />
         <button type="submit">Add Task</button>
     </form>
+    <form class="collocation-form">
+        <input type="text" name="text" placeholder="Type to add new collocations" />
+        <button type="submit">Add Collocation</button>
+    </form>
 </template>
+

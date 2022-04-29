@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { TasksCollection } from '../api/TasksCollection';
+import { CollocationCollection } from "../api/CollocationCollection";
 import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
@@ -37,6 +38,8 @@ Template.mainContainer.helpers({
   },
 });
 
+
+
 Template.form.events({
   'submit .task-form'(event) {
     // Prevent default browser form submit
@@ -56,3 +59,31 @@ Template.form.events({
     target.text.value = '';
   },
 });
+
+
+
+Template.mainContainer.helpers({
+  collocations() {
+    return CollocationCollection.find({}, { sort: { createdAt: -1 } });
+  },
+});
+
+Template.form.events({
+  "submit .collocation-form"(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+
+    // Get value from form element
+    const target = event.target;
+    const text = target.text.value;
+
+    // Insert a task into the collection
+    CollocationCollection.insert({
+      text,
+      createdAt: new Date(), // current time
+    });
+
+    // Clear form
+    target.text.value = '';
+  }
+})
