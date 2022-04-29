@@ -5,6 +5,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
 
+
 const HIDE_COMPLETED_STRING = 'hideCompleted';
 
 Template.mainContainer.onCreated(function mainContainerOnCreated() {
@@ -59,7 +60,7 @@ Template.form.events({
 });
 
 Template.mainContainer.helpers({
- collocation (){
-   return CollocationCollection.find({});
+  collocation() {
+    return CollocationCollection.find({});
   },
 });
