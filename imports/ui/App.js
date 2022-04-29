@@ -1,10 +1,8 @@
 import { Template } from 'meteor/templating';
 import { TasksCollection } from '../api/TasksCollection';
-import { CollocationCollection } from '../api/CollocationCollection';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
-
 
 const HIDE_COMPLETED_STRING = 'hideCompleted';
 
@@ -56,11 +54,5 @@ Template.form.events({
 
     // Clear form
     target.text.value = '';
-  },
-});
-
-Template.mainContainer.helpers({
-  collocation() {
-    return CollocationCollection.find({});
   },
 });
