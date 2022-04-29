@@ -7,28 +7,18 @@ const insertTask = taskText => TasksCollection.insert({ text: taskText });
 const insertCollocation = collocationText => CollocationCollection.insert({ text: collocationText });
  
 Meteor.startup(() => {
-  if (TasksCollection.find().count() === 0) {
+  if (TasksCollection.find()) {
     [
-      'Second Task',
-      'Third Task',
-      'Fourth Task',
-      'Fifth Task',
-      'Sixth Task',
-      'Seventh Task'
+      
     ].forEach(insertTask)
-  }
+  };
+  
+  if (CollocationCollection.find()) {
+      [
+
+      ].forEach(insertCollocation)
+  };
+
+
 });
 
-Meteor.startup(() => {
-  if (CollocationCollection.find().count() === 0) {
-    [
-      'First Collocation',
-      'Second Collocation',
-      'Third Collocation',
-      'Fourth Collocation',
-      'Fifth Collocation',
-      'Sixth Collocation',
-      'Seventh Collocation'
-    ].forEach(insertCollocation)
-  }
-});

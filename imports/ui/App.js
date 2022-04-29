@@ -4,6 +4,8 @@ import { CollocationCollection } from "../api/CollocationCollection";
 import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
+import './Collocation.html';
+import './Collocation.js';
 
 const HIDE_COMPLETED_STRING = 'hideCompleted';
 
@@ -36,6 +38,9 @@ Template.mainContainer.helpers({
     const incompleteTasksCount = TasksCollection.find({ isChecked: { $ne: true } }).count();
     return incompleteTasksCount ? `(${incompleteTasksCount})` : '';
   },
+    collocations() {
+      return CollocationCollection.find({}, { sort: { createdAt: -1 } });
+    },
 });
 
 
@@ -57,18 +62,11 @@ Template.form.events({
 
     // Clear form
     target.text.value = '';
-  },
+  }
+  
 });
 
-
-
-Template.mainContainer.helpers({
-  collocations() {
-    return CollocationCollection.find({}, { sort: { createdAt: -1 } });
-  },
-});
-
-Template.form.events({
+Template.form2.events({
   "submit .collocation-form"(event) {
     // Prevent default browser form submit
     event.preventDefault();
@@ -86,4 +84,11 @@ Template.form.events({
     // Clear form
     target.text.value = '';
   }
-})
+
+});
+
+
+  
+  
+  
+

@@ -15,37 +15,31 @@
 
         <div class="main">
             {{> form }}
+            {{> form2 }}
 
             <div class="filter">
-                <button id="hide-completed-button">
-                    {{#if hideCompleted}}
-                            Show All
-                    {{else}}
-                            Hide Completed
-                    {{/if}}
-                </button>
+                    <button id="hide-completed-button">
+                        {{#if hideCompleted}}
+                                Show All
+                        {{else}}
+                                Hide Completed
+                        {{/if}}
+                    </button>
             </div>
-
-            <h1>Salon</h1>
-
-            <h1>Cuisine</h1>
-
-            <h1>Salle de bain</h1>
-
-            <h1>Autre</h1>
-
-            <ul class="tasks autre">
-                {{#each tasks}}
-                    {{> task}}
-                {{/each}}
-            </ul>
-
-            <ul class="collocations">
+            <div>
+                <ul class="tasks autre">
+                    {{#each tasks}}
+                        {{> task}}
+                    {{/each}}
+                </ul>
+            </div>
+            <div> 
+                <ul class="collocation autre">
                 {{#each collocations}}
                     {{> collocation}}
                 {{/each}}
-            </ul>
-
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -55,9 +49,11 @@
         <input type="text" name="text" placeholder="Type to add new tasks" />
         <button type="submit">Add Task</button>
     </form>
+</template>
+
+<template name="form2">
     <form class="collocation-form">
         <input type="text" name="text" placeholder="Type to add new collocations" />
         <button type="submit">Add Collocation</button>
     </form>
 </template>
-
