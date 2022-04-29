@@ -7,10 +7,11 @@
         <header>
             <div class="app-bar">
                 <div class="app-header">
-                    <h1>📝️ To Do List {{incompleteCount}}</h1>
+                    <h1>📝️ To Do List Adrien {{incompleteCount}}</h1>
                 </div>
             </div>
         </header>
+    
 
         <div class="main">
             {{> form }}
@@ -25,11 +26,20 @@
                 </button>
             </div>
 
-            <ul class="tasks">
+            <h1>Salon</h1>
+
+            <h1>Cuisine</h1>
+
+            <h1>Salle de bain</h1>
+
+            <h1>Autre</h1>
+
+            <ul class="tasks autre">
                 {{#each tasks}}
                     {{> task}}
                 {{/each}}
             </ul>
+
         </div>
     </div>
 </template>
