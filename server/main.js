@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { TasksCollection } from '/imports/api/TasksCollection';
+import { CollocationCollection } from '/imports/api/CollocationCollection';
 
 
 const insertTask = taskText => TasksCollection.insert({ text: taskText });
@@ -21,7 +22,7 @@ Meteor.startup(() => {
 
  
 Meteor.startup(() => {
-  if (CollocationCollection) {
+  if (CollocationCollection.find()) {
     [
       'First Collocation',
       'Second Collocation',
