@@ -4,6 +4,8 @@ import { TasksCollection } from '../api/TasksCollection';
 
 import './Task.html';
 
+// Ici on récup le nm de l'utilisateur
+
 Template.task.events({
   'click .toggle-checked'() {
     // Set the checked property to the opposite of its current value
