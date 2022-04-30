@@ -1,10 +1,10 @@
 import { Meteor } from 'meteor/meteor';
 import { TasksCollection } from '/imports/api/TasksCollection';
-import { CollocationCollection } from '/imports/api/CollocationCollection';
+import { PieceCollection } from '/imports/api/PieceCollection';
 
 const insertTask = taskText => TasksCollection.insert({ text: taskText });
 
-const insertCollocation = collocationText => CollocationCollection.insert({ text: collocationText });
+const insertPiece = pieceText => PieceCollection.insert({ text: pieceText });
  
 Meteor.startup(() => {
   if (TasksCollection.find()) {
@@ -13,10 +13,10 @@ Meteor.startup(() => {
     ].forEach(insertTask)
   };
   
-  if (CollocationCollection.find()) {
+  if (PieceCollection.find()) {
       [
 
-      ].forEach(insertCollocation)
+      ].forEach(insertPiece)
   };
 
 
