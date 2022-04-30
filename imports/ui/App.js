@@ -1,11 +1,11 @@
 import { Template } from 'meteor/templating';
 import { TasksCollection } from '../api/TasksCollection';
-import { CollocationCollection } from "../api/CollocationCollection";
+import { PieceCollection } from "../api/PieceCollection";
 import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
-import './Collocation.html';
-import './Collocation.js';
+import './Piece.html';
+import './Piece.js';
 
 const HIDE_COMPLETED_STRING = 'hideCompleted';
 
@@ -38,8 +38,8 @@ Template.mainContainer.helpers({
     const incompleteTasksCount = TasksCollection.find({ isChecked: { $ne: true } }).count();
     return incompleteTasksCount ? `(${incompleteTasksCount})` : '';
   },
-    collocations() {
-      return CollocationCollection.find({}, { sort: { createdAt: -1 } });
+  pieces() {
+      return PieceCollection.find({}, { sort: { createdAt: -1 } });
     },
 });
 
@@ -67,7 +67,7 @@ Template.form.events({
 });
 
 Template.form2.events({
-  "submit .collocation-form"(event) {
+  "submit .piece-form"(event) {
     // Prevent default browser form submit
     event.preventDefault();
 
@@ -76,7 +76,7 @@ Template.form2.events({
     const text = target.text.value;
 
     // Insert a task into the collection
-    CollocationCollection.insert({
+    PieceCollection.insert({
       text,
       createdAt: new Date(), // current time
     });

@@ -1,17 +1,17 @@
 import { Template } from 'meteor/templating';
 
-import { CollocationCollection } from '../api/CollocationCollection';
+import { PieceCollection } from '../api/PieceCollection';
 
-import './Collocation.html';
+import './Piece.html';
 
-Template.collocation.events({
+Template.piece.events({
   'click .toggle-checked'() {
     // Set the checked property to the opposite of its current value
-    CollocationCollection.update(this._id, {
+    PieceCollection.update(this._id, {
       $set: { isChecked: !this.isChecked },
     });
   },
   'click .delete'() {
-    CollocationCollection.remove(this._id);
+    PieceCollection.remove(this._id);
   },
 });
