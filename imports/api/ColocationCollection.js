@@ -1,3 +1,3 @@
 import { Mongo } from 'meteor/mongo';
  
-export const ColocationCollection = new Mongo.Collection('colocation');
+export const ColocationCollection = new Mongo.Collection('colocations');

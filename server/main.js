@@ -17,7 +17,7 @@ Meteor.startup(() => {
     });
   }
 
-  const user = Accounts.findUserByUsername(SEED_USERNAME);
+const user = Accounts.findUserByUsername(SEED_USERNAME);
 
   if (TasksCollection.find().count() === 0) {
     [
@@ -27,15 +27,16 @@ Meteor.startup(() => {
     ].forEach(taskText => insertTask(taskText, user))
   }
 
-  if (ColocationCollection.find().count() === 1){
-    [
-      'Ce nom est déjà utilisé',
-      'Trouver un autre nom',
-    ]
-  } else if (ColocationCollection.find().count() === 0) {
-    [
-      'Créer votre coloc'
-    ].forEach(colocationText => insertColocation(colocationText, user))
-  }
+  // if (ColocationCollection.find().count() === 1){
+  //   [
+  //     'Ce nom est déjà utilisé',
+  //     'Trouver un autre nom',
+  //   ]
+  // } 
+  // else if (ColocationCollection.find().count() === 0) {
+  //   [
+  //     'Créer votre coloc'
+  //   ].forEach(colocationText => insertColocation(colocationText, user))
+  // }
 
 });
