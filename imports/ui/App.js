@@ -66,7 +66,7 @@ Template.form.events({
   
 });
 
-Template.form2.events({
+Template.form3.events({
   "submit .piece-form"(event) {
     // Prevent default browser form submit
     event.preventDefault();
