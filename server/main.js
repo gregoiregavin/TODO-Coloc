@@ -2,9 +2,11 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { TasksCollection } from '/imports/api/TasksCollection';
 import { ColocationCollection } from '../imports/api/ColocationCollection';
+import { PieceCollection } from '../imports/api/PieceCollection';
 
 const insertTask = taskText => TasksCollection.insert({ text: taskText, userId: user._id, createdAt: new Date(), });
 const insertColocation = colocationText => ColocationCollection.insert({ text: colocationText, userId: user._id, createdAt: new Date(), });
+const insertPiece = pieceText => PieceCollection.insert({ text: pieceText, userId: user._id, createdAt: new Date(), });
  
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';
@@ -25,6 +27,13 @@ const user = Accounts.findUserByUsername(SEED_USERNAME);
       'Vous pouvez supprimer ces tâches',
       'Et en créer des nouvelles !',
     ].forEach(taskText => insertTask(taskText, user))
+  }
+  if (PieceCollection.find().count() === 0) {
+    [
+      'Votre liste de tâches est vide',
+      'Vous pouvez supprimer ces tâches',
+      'Et en créer des nouvelles !',
+    ].forEach(pieceText => insertPiece(pieceText, user))
   }
 
   // if (ColocationCollection.find().count() === 1){
