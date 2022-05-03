@@ -75,6 +75,9 @@ Template.mainContainer.helpers({
   },
   getUser() {
     return getUser();
+  }, 
+  colocations() {
+    return ColocationCollection.find({});
   },
   pieces() {
     return PieceCollection.find({});
