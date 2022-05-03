@@ -1,16 +1,6 @@
 <body>
   {{> mainContainer}}
 </body>
-    
-<template name="mainContainer">
-    <div class="app">
-        <header>
-            <div class="app-bar">
-                <div class="app-header">
-                    <h1>📝️ To Do List Adrien {{incompleteCount}}</h1>
-                </div>
-            </div>
-        </header>
 
 <template name="mainContainer">
   <div class="global-wrapper">
@@ -28,47 +18,39 @@
                 {{getUser.username}} 🚪
             </div>
             {{> form }}
-            {{> form3 }}
+            {{> form2 }}
 
             <div class="filter">
-                    <button id="hide-completed-button">
-                        {{#if hideCompleted}}
-                                Show All
-                        {{else}}
-                                Hide Completed
-                        {{/if}}
-                    </button>
+                <button id="hide-completed-button">
+                {{#if hideCompleted}} Show All {{else}} Hide Completed {{/if}}
+                </button>
             </div>
-            <div>
-                <ul class="tasks autre">
-                    {{#each tasks}}
-                        {{> task}}
-                    {{/each}}
-                </ul>
-            </div>
-            <div> 
-                <ul class="piece autre">
-                {{#each pieces}}
-                    {{> piece}}
-                {{/each}}
-                </ul>
-            </div>
-        </div>
+
+            <ul class="tasks">
+                {{#each tasks}} {{> task}} {{/each}}
+            </ul>
+
+            <!-- <ul class = "colocations">
+              {{#each colocations}} {{> colocation}} {{/each}}
+            </ul> -->
+
+        {{else}} 
+            {{> login }} 
+        {{/if}}
     </div>
   </div>
 </template>
 
 <template name="form">
-    <form class="task-form">
-        <input type="text" name="text" placeholder="Type to add new tasks" />
-        <button type="submit">Add Task</button>
-    </form>
+  <form class="task-form">
+    <input type="text" name="text" placeholder="Type to add new tasks" />
+    <button type="submit">Add Task</button>
+  </form>
 </template>
 
-<template name="form3">
-    <form class="piece-form">
-        <input type="text" name="text" placeholder="Type to add new pieces" />
-        <button type="submit">Add Piece</button>
-    </form>
+<template name="form2">
+  <form class="colocation-form">
+    <input type="text" name="text" placeholder="Type to add a colocation" />
+    <button type="submit">Add colocation</button>
+  </form>
 </template>
-

@@ -1,17 +1,12 @@
 import { Template } from 'meteor/templating';
-import { ReactiveDict } from 'meteor/reactive-dict';
-
 import { TasksCollection } from '../api/TasksCollection';
 import { ColocationCollection } from '../api/ColocationCollection';
-import { PieceCollection } from "../api/PieceCollection";
-
+import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
 import "./Login.js";
 import './Colocation.js';
 import './Colocation.html'
-import './Piece.html';
-import './Piece.js';
 
 const HIDE_COMPLETED_STRING = 'hideCompleted';
 
@@ -77,13 +72,8 @@ Template.mainContainer.helpers({
   },
   getUser() {
     return getUser();
-  },
-  pieces() {
-      return PieceCollection.find({}, { sort: { createdAt: -1 } });
-    },
+  }
 });
-
-
 
 Template.form.events({
   'submit .task-form'(event) {
@@ -124,33 +114,5 @@ Template.form2.events({
 
     // Clear form
     target.text.value = '';
-  }
-  
+  },
 });
-
-Template.form3.events({
-  "submit .piece-form"(event) {
-    // Prevent default browser form submit
-    event.preventDefault();
-
-    // Get value from form element
-    const target = event.target;
-    const text = target.text.value;
-
-    // Insert a task into the collection
-    PieceCollection.insert({
-      text,
-      createdAt: new Date(), // current time
-    });
-
-    // Clear form
-    target.text.value = '';
-  }
-
-});
-
-
-  
-  
-  
-
