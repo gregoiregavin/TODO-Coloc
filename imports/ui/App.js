@@ -1,9 +1,12 @@
 import { Template } from 'meteor/templating';
 import { TasksCollection } from '../api/TasksCollection';
+import { ColocationCollection } from '../api/ColocationCollection';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import './App.html';
 import './Task.js';
 import "./Login.js";
+import './Colocation.js';
+import './Colocation.html'
 
 const HIDE_COMPLETED_STRING = 'hideCompleted';
 
@@ -83,6 +86,27 @@ Template.form.events({
 
     // Insert a task into the collection
     TasksCollection.insert({
+      text,
+      userId: getUser()._id,
+      createdAt: new Date(), // current time
+    });
+
+    // Clear form
+    target.text.value = '';
+  },
+});
+
+Template.form2.events({
+  'submit .colocation-form'(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+
+    // Get value from form element
+    const { target } = event;
+    const text = target.text.value;
+
+    // Insert a task into the collection
+    ColocationCollection.insert({
       text,
       userId: getUser()._id,
       createdAt: new Date(), // current time
