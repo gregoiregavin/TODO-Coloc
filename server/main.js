@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { TasksCollection } from '/imports/api/TasksCollection';
-import { ColocationCollection } from '../imports/api/ColocationCollection';
-import { PieceCollection } from '../imports/api/PieceCollection';
+import { TasksCollection } from '/imports/api/tasks-collection';
+import { ColocationCollection } from '../imports/api/colocation-collection';
+import { PieceCollection } from '../imports/api/piece-collection';
 
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';

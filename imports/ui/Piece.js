@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import { PieceCollection } from '../api/PieceCollection';
+import { PieceCollection } from '../api/piece-collection';
 
-import './Piece.html';
+import './piece.html';
 
 // Ici on récup le nm de l'utilisateur
 
