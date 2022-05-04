@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import { TasksCollection } from '../api/TasksCollection';
+import { TasksCollection } from '../api/tasks-collection';
 
-import './Task.html';
+import './task.html';
 
 // Ici on récup le nm de l'utilisateur
 

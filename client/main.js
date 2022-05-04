@@ -1,4 +1,4 @@
-import '../imports/ui/App.js';
+import '../imports/ui/pages/home/app.js';
 
 Meteor.startup(() => {
     // Utilisé pour peupler la TasksCollection dans tuto : https://blaze-tutorial.meteor.com/simple-todos/02-collections.html

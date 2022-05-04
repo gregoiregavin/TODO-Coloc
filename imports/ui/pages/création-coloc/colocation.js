@@ -1,8 +1,8 @@
 import { Template } from 'meteor/templating';
 
-import { ColocationCollection } from '../api/ColocationCollection';
+import { ColocationCollection } from '../api/colocation-collection';
 
-import './Colocation.html';
+import './colocation.html';
 
 Template.colocation.events({
   'click .toggle-checked'() {

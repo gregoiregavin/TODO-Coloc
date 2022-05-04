@@ -1,0 +1,22 @@
+<template name="création-coloc">
+    {{> nav}} 
+
+    <h1>Créer votre colocation</h1>
+    
+    {{> add}}
+    {{> join}}
+</template>
+
+<template name="add">
+    <form class="colocation-form">
+      <input type="text" name="text" placeholder="Type to add a colocation" />
+      <button type="submit">Add colocation</button>
+    </form>
+</template>
+
+<template name="join">
+    <form class="colocation-form">
+        <input type="text" name="text" placeholder="Type to join a colocation" />
+        <button type="submit">Join colocation</button>
+    </form>
+</template>

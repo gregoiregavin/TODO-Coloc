@@ -1,12 +1,12 @@
 import { Template } from 'meteor/templating';
-import { TasksCollection } from '../api/TasksCollection';
-import { ColocationCollection } from '../api/ColocationCollection';
+import { TasksCollection } from '../../../api/tasks-collection';
+import { ColocationCollection } from '../../../api/colocation-collection';
 import { ReactiveDict } from 'meteor/reactive-dict';
-import './App.html';
-import './Task.js';
-import "./Login.js";
-import './Colocation.js';
-import './Colocation.html'
+import './app.html';
+import './task.js';
+import "./login.js";
+import '../création-coloc/colocation.js';
+import '../création-coloc/colocation.html'
 
 const HIDE_COMPLETED_STRING = 'hideCompleted';
 

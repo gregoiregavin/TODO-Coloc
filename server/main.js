@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { TasksCollection } from '/imports/api/TasksCollection';
-import { ColocationCollection } from '../imports/api/ColocationCollection';
+import { TasksCollection } from '../imports/api/tasks-collection';
+import { ColocationCollection } from '../imports/api/colocation-collection';
 
 const insertTask = taskText => TasksCollection.insert({ text: taskText, userId: user._id, createdAt: new Date(), });
 const insertColocation = colocationText => ColocationCollection.insert({ text: colocationText, userId: user._id, createdAt: new Date(), });
