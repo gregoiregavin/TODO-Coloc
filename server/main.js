@@ -26,6 +26,14 @@ const user = Accounts.findUserByUsername(SEED_USERNAME);
       'Et en créer des nouvelles !',
     ].forEach(taskText => insertTask(taskText, user))
   }
+  
+  if (PieceCollection.find().count() === 0) {
+    [
+      'Votre liste de tâches est vide',
+      'Vous pouvez supprimer ces tâches',
+      'Et en créer des nouvelles !',
+    ].forEach(pieceText => insertPiece(pieceText, user))
+  }
 
   // if (ColocationCollection.find().count() === 1){
   //   [
