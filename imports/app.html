@@ -1,0 +1,32 @@
+<body>
+    {{> mainContainer }}
+</body>
+
+<template name="mainContainer">
+    <div class="container">
+        <header>
+            <h1>Todo List</h1>
+        </header>
+
+        {{> formulaireColocation}}
+
+        <ul>
+            {{#each colocations}}
+                {{> colocation}}
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="colocation">
+    <li>{{nom}}</li>
+</template>
+
+<template name="formulaireColocation">
+
+    <form class="formulaire-colocation">
+        <input type="text" name="nom" placeholder="Le nom de votre colocation" />
+        <button type="submit">Ajouter</button>
+    </form>
+</template>
+

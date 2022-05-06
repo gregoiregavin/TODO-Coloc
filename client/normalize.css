@@ -174,8 +174,7 @@
    */
   
   button,
-  input {
-    /* 1 */
+  input { /* 1 */
     overflow: visible;
   }
   
@@ -185,8 +184,7 @@
    */
   
   button,
-  select {
-    /* 1 */
+  select { /* 1 */
     text-transform: none;
   }
   
@@ -333,6 +331,14 @@
   
   /* Misc
      ========================================================================== */
+  
+  /**
+   * Add the correct display in IE 10+.
+   */
+  
+  template {
+    display: none;
+  }
   
   /**
    * Add the correct display in IE 10.
