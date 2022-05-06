@@ -1,5 +1,5 @@
 import { Template } from 'meteor/templating';
-import { Colocations, ajouterColocation, toutesLesColocations } from "./collections/Colocations";
+import { ajouterColocation, toutesLesColocations } from "./collections/Colocations";
 import './app.html';
 
 Template.mainContainer.helpers({

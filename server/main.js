@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Colocations } from '/imports/collections/Colocations';
 
-/* const insererColocation = nomColocation => Colocations.insert({ text: taskText });
+// const insererColocation = nomColocation => Colocations.insert({ text: taskText });
  
 Meteor.startup(() => {
   if (Colocations.find().count() === 0) {
@@ -15,4 +15,4 @@ Meteor.startup(() => {
       'Seventh Task'
     ].forEach(insererColocation)
   }
-}); */
+});
