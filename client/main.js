@@ -1,1 +1,1 @@
-import '../imports/ui/pages/routes.js';
+import '../imports/app.js';

@@ -1,23 +1,20 @@
-import { Template } from 'meteor/templating';
-import { ajouterColocation, toutesLesColocations } from "./collections/colocations";
+// Container global
 import './app.html';
 
+// Templates de pages
+import './ui/pages/login/login'
+import './ui/pages/dashboard/dashboard'
+import './ui/pages/leaderboard/leaderboard'
+import './ui/pages/notfound/404'
 
-Template.mainContainer.helpers({
-  colocations() {
-    return toutesLesColocations();
-  },
-});
+// Composants
+import './ui/components/header/header'
+import './ui/components/footer/footer'
 
-Template.formulaireColocation.events({
-  "submit .formulaire-colocation"(event) {
-    event.preventDefault();
+// Création des pages
+import { creerPage } from "./router";
 
-    const target = event.target;
-    const nomColoc = target.nom.value;
-
-    ajouterColocation(nomColoc);
-
-    target.nom.value = '';
-  }
-})
+creerPage('/', "login", "app");
+creerPage('/leaderboard', "leaderboard", "app");
+creerPage('/dashboard', "dashboard", "app");
+creerPage('*', "404", "404");
