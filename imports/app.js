@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
-import { ajouterColocation, toutesLesColocations } from "./collections/Colocations";
+import { ajouterColocation, toutesLesColocations } from "./collections/colocations";
 import './app.html';
+
 
 Template.mainContainer.helpers({
   colocations() {

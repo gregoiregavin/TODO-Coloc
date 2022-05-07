@@ -1,0 +1,20 @@
+<template name="header">
+  <h1>HEADER</h1>
+  <ul>
+    <li>
+        <a class="{{isActivePath '/'}}" href="{{urlFor 'login'}}">
+            Page d'accueil (login) 
+        </a>
+    </li>
+    <li>
+        <a class="{{isActivePath '/dashboard'}}" href="{{urlFor 'dashboard'}}">
+            Ma colocation
+        </a>
+    </li>
+    <li>
+        <a class="{{isActivePath '/leaderboard'}}" href="{{urlFor 'leaderboard'}}">
+            Tableau des scores
+        </a>
+    </li>
+  </ul>
+</template>
