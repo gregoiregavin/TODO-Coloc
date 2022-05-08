@@ -27,7 +27,7 @@ header {
 
 .brand > p {
     font-weight: var(--fontWeight-medium);
-    color: var(--color-primary);
+    color: var(--color-accent);
 }
 
 #mainNav {
@@ -47,6 +47,6 @@ header {
 }
 
 .menu-item > .active {
-    color: var(--color-accent);
+    color: var(--color-primary);
     font-weight: var(--fontWeight-bold);
 }

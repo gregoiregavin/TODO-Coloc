@@ -58,7 +58,7 @@
   --color-primary: #A28EE0;
   --color-accent: #E0C1A4;
   --color-gray-medium: #808080;
-  --color-gray-light: #bebebe;
+  --color-gray-light: #efefef;
   --color-heading: #1a202c;
   --color-heading-black: #2a2a2b;
 }
@@ -146,6 +146,19 @@ a {
 
 a.active {
   text-decoration: underline;
+}
+
+/* Forms */
+
+button,
+button:focus,
+button:active{
+	border:1px solid black;
+  background-color: var(--color-primary);
+	outline:none;
+	padding:0;
+  cursor: pointer;
+  line-height: var(--lineHeight-relaxed);
 }
 
 /* Custom classes */
