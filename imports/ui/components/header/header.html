@@ -8,6 +8,7 @@
                 <a href="/">JSP</a>
                 <p>Une app pour une coloc clean</p>
             </div>
+            {{#if isNotActiveRoute 'login'}}
             <nav id="mainNav">
                 <ul class="menu">
                     <li class="menu-item">
@@ -22,6 +23,7 @@
                     </li>
                 </ul>
             </nav>
+            {{/if}}
         </div>
     </header>
 </template>
