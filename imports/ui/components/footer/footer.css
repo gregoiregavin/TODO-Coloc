@@ -1,0 +1,15 @@
+.footer {
+    box-sizing: border-box;
+    font-family: var(--fontFamily-sans);
+    border-top: solid 1px var(--color-gray-light);
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: row;
+    margin: var(--spacing-2) 0 var(--spacing-8) 0;
+}
+
+.credits {
+    margin-right: auto;
+}
