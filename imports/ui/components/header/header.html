@@ -1,0 +1,31 @@
+<template name="header">
+    <header>
+        {{#if isNotActiveRoute 'login'}}
+        <div class="top-nav">
+            <p>{NomUtilisateur} <a>(logout)</a></p>
+        </div>
+        {{/if}}
+        <div class="header__container">
+            <div class="brand">
+                <a href="/">JSP</a>
+                <p>Une app pour une coloc clean</p>
+            </div>
+            {{#if isNotActiveRoute 'login'}}
+            <nav id="mainNav">
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a class="{{isActivePath '/'}}" href="{{urlFor 'dashboard'}}">
+                            dashboard
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="{{isActivePath '/leaderboard'}}" href="{{urlFor 'leaderboard'}}">
+                            scores
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            {{/if}}
+        </div>
+    </header>
+</template>
