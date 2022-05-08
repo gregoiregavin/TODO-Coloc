@@ -17,5 +17,4 @@ import { creerPage } from "./router";
 creerPage('/', "dashboard", "app");
 creerPage('/login', "login", "app");
 creerPage('/leaderboard', "leaderboard", "app");
-creerPage('/creation-compte','creation-compte','app');
 creerPage('*', "404", "404");

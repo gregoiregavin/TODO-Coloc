@@ -63,6 +63,14 @@
   --color-heading-black: #2a2a2b;
 }
 
+::selection {
+  background: #d9ccff;
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+}
+
 /* HTML elements */
 
 *,
@@ -160,6 +168,7 @@ input {
   padding: var(--spacing-4);
   background-color: var(--color-gray-light);
   color: black;
+  border-bottom: 2px solid white;
 }
 
 input:focus {

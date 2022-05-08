@@ -7,20 +7,32 @@
     text-align: center;
 }
 
-.login-form {
+.login-wrap p {
+    margin-top: var(--spacing-6);
+}
+
+.login-form,
+.new-acc-form {
     display: flex;
     flex-direction: column;
 }
 
-.login-form div {
+.login-form div,
+.new-acc-form div {
     margin-bottom: var(--spacing-2);
 }
 
-.login-form input {
+.login-form input,
+.new-acc-form input {
     text-align: center;
 }
 
-.login-form button {
+.login-form button,
+.new-acc-form button {
     margin: var(--spacing-4) auto 0 auto;
     width: 50%;
+}
+
+.message {
+    color: red;
 }

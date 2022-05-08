@@ -1,6 +1,22 @@
 <template name="login">
     <div class="login-wrap">
-        <p>Connectez-vous ou <a href="{{urlFor 'creation-compte'}}">créez un compte</a> pour continuer.</p>
+        {{ #if creationDeCompte }}
+        <h1>Création de compte</h1>
+        <form class="new-acc-form">
+            <div>
+                <input type="text" placeholder="prénom" name="username" required />
+            </div>
+            <div>
+                <input type="password" placeholder="mot de passe" name="password" required/>
+            </div>
+            <div>
+                <input type="password" placeholder="confirmez mot de passe" name="password-repeat"/>
+            </div>
+            <button id="creer-compte" type="submit">créer le compte</button>
+        </form>
+        <p><a href="#" id="login">j'ai déjà un compte</a></p>
+        {{ else }}
+        <h1>Connexion</h1>
         <form class="login-form">
             <div>
                 <input type="text" placeholder="prénom" name="username" required />
@@ -8,7 +24,17 @@
             <div>
                 <input type="password" placeholder="mot de passe" name="password" required/>
             </div>
-            <button type="submit">connexion</button>
+            <button type="submit">se connecter</button>
+            <p><a href="#" id="account-creation">créer un compte</a></p>
         </form>
+        {{ /if }}
+        {{> message }}
+    </div>
+    
+</template>
+
+<template name="message">
+    <div class="message">
+        <p>MESSAGE</p>
     </div>
 </template>
