@@ -1,19 +1,21 @@
 <template name ="app">
     <div class="global-wrapper">
-        {{> header}}
+        <div class="main-container">
+            {{> header}}
 
-        {{#if isActiveRoute 'login'}}
-            {{> login}}
-        {{/if}}
+            {{#if isActiveRoute 'login'}}
+                {{> login}}
+            {{/if}}
 
-        {{#if isActiveRoute 'dashboard'}}
-            {{> dashboard}}
-        {{/if}}
+            {{#if isActiveRoute 'dashboard'}}
+                {{> dashboard}}
+            {{/if}}
 
-        {{#if isActiveRoute 'leaderboard'}}
-            {{> leaderboard}}
-        {{/if}}
-        
-        {{> footer}}
+            {{#if isActiveRoute 'leaderboard'}}
+                {{> leaderboard}}
+            {{/if}}
+            
+            {{> footer}}
+        </div>
     </div>
 </template>

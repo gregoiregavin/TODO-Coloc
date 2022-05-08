@@ -83,8 +83,6 @@ body {
   font-size: var(--fontSize-1);
   color: var(--color-text);
   background-color: var(--color-secondary);
-  border: solid var(--spacing-6) var(--color-primary);
-  height: 100vh;
 }
 
 footer {
@@ -153,6 +151,10 @@ a.active {
 /* Custom classes */
 
 .global-wrapper {
+  border: solid var(--spacing-6) var(--color-primary);
+}
+
+.main-container {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-10) var(--spacing-5);
