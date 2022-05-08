@@ -3,6 +3,10 @@ header {
     font-family: var(--fontFamily-sans);
 }
 
+.top-nav {
+    text-align: right;
+}
+
 .header__container {
     display: flex;
     flex-direction: row;
