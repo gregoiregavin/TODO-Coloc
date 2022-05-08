@@ -165,7 +165,7 @@ input {
 input:focus {
   border: none;
   outline: none;
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-primary);
 }
 
 button {
