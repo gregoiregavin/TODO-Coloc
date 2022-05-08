@@ -1,9 +1,14 @@
 <template name="login">
     <div class="login-wrap">
+        <p>Connectez-vous ou <a href="#">créez un compte</a> pour continuer.</p>
         <form class="login-form">
-            <input type="text" placeholder="Username" name="username" required />
-            <input type="password" placeholder="Password" name="password" required/>
-            <button type="submit">Log In</button>
+            <div>
+                <input type="text" placeholder="prénom" name="username" required />
+            </div>
+            <div>
+                <input type="password" placeholder="mot de passe" name="password" required/>
+            </div>
+            <button type="submit">connexion</button>
         </form>
     </div>
 </template>

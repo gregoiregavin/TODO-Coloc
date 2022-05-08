@@ -56,9 +56,9 @@
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
   --color-primary: #A28EE0;
-  --color-accent: #E0C1A4;
-  --color-gray-medium: #808080;
-  --color-gray-light: #efefef;
+  --color-accent: #604E94;
+  --color-gray-medium: #868686;
+  --color-gray-light: #f4f4f4;
   --color-heading: #1a202c;
   --color-heading-black: #2a2a2b;
 }
@@ -144,27 +144,51 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 a.active {
   text-decoration: underline;
 }
 
 /* Forms */
 
-button,
-button:focus,
-button:active{
-	border:1px solid black;
-  background-color: var(--color-primary);
+input {
+  border: none;
+  width: 100%;
+  padding: var(--spacing-4);
+  background-color: var(--color-gray-light);
+  color: black;
+}
+
+input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+button {
+	border: none;
+  background-color: var(--color-accent);
+  color: white;
 	outline:none;
-	padding:0;
   cursor: pointer;
-  line-height: var(--lineHeight-relaxed);
+  height: var(--spacing-12);
+  transition: background-color 0.1s ease-out 100ms;
+  font-weight: var(--fontWeight-black);
+  border-radius: var(--spacing-16);
+}
+
+button:hover {
+  background-color: var(--color-primary);
 }
 
 /* Custom classes */
 
 .global-wrapper {
   border: solid var(--spacing-6) var(--color-primary);
+  min-height: 100vh;
 }
 
 .main-container {
