@@ -1,20 +1,24 @@
 <template name="header">
-  <h1>HEADER</h1>
-  <ul>
-    <li>
-        <a class="{{isActivePath '/'}}" href="{{urlFor 'dashboard'}}">
-            Page d'accueil (dashboard)
-        </a>
-    </li>
-    <li>
-        <a class="{{isActivePath '/login'}}" href="{{urlFor 'login'}}">
-            Page login
-        </a>
-    </li>
-    <li>
-        <a class="{{isActivePath '/leaderboard'}}" href="{{urlFor 'leaderboard'}}">
-            Tableau des scores
-        </a>
-    </li>
-  </ul>
+    <header>
+        <div class="header__container">
+            <div class="brand">
+                <a href="/">JSP</a>
+                <p>Une app pour une coloc clean</p>
+            </div>
+            <nav id="mainNav">
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a class="{{isActivePath '/'}}" href="{{urlFor 'dashboard'}}">
+                            dashboard
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="{{isActivePath '/leaderboard'}}" href="{{urlFor 'leaderboard'}}">
+                            scores
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 </template>
