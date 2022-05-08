@@ -14,7 +14,7 @@ import './ui/components/footer/footer'
 // Création des pages
 import { creerPage } from "./router";
 
-creerPage('/', "login", "app");
+creerPage('/', "dashboard", "app");
+creerPage('/login', "login", "app");
 creerPage('/leaderboard', "leaderboard", "app");
-creerPage('/dashboard', "dashboard", "app");
 creerPage('*', "404", "404");
