@@ -1,8 +1,10 @@
 <template name="header">
     <header>
+        {{#if isNotActiveRoute 'login'}}
         <div class="top-nav">
             <p>{NomUtilisateur} <a>(logout)</a></p>
         </div>
+        {{/if}}
         <div class="header__container">
             <div class="brand">
                 <a href="/">JSP</a>
