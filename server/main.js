@@ -13,9 +13,9 @@ Meteor.startup(() => {
           password: SEED_PASSWORD,
         });
       }
-    if (PieceCollection.find()) {
-       [
-
-        ].forEach(pieceText => insertPiece(pieceText, user))
-      }
+    if (PieceCollection.find().count() === 0) {
+      [
+       
+      ].forEach(pieceText => insertPiece(pieceText, user))
+    }
 });
