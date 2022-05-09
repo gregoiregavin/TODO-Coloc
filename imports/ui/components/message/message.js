@@ -3,12 +3,13 @@ import "./message.css"
 
 Template.messages.events({
     "click .message" (event) {
-        currentMessage = event.currentTarget;
-        currentMessage.remove();
+        currentMessage = event.currentTarget
+        currentMessage.remove()
     },
 });
 
-export const creerMessage = () => { 
-    let parent = document.getElementById("messages")
-    console.log(parent);
+export const popMessage = () => { 
+    let messages = document.getElementById("messages")
+    console.log(messages);
+    messages.classList.toggle('invisible');
 }

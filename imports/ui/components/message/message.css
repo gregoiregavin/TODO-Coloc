@@ -6,6 +6,10 @@
     text-align: center;
 }
 
+#messages.invisible {
+    display: none;
+}
+
 .message {
     margin: auto;
     border-radius: var(--spacing-2);
