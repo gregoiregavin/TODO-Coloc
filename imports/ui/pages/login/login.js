@@ -6,19 +6,18 @@ import "../../components/footer/footer";
 import { Template } from "meteor/templating";
 import { ReactiveDict } from "meteor/reactive-dict";
 import { Accounts } from "meteor/accounts-base";
-import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
 Template.login.onCreated(function loginContainerOnCreated() {
   this.state = new ReactiveDict();
 });
 
 Template.login.events({
-  "click #account-creation, click #login"(event, instance) {
+  "click #creation-compte, click #login"(event, instance) {
     event.preventDefault();
     const etatActuel = instance.state.get("etat");
     instance.state.set("etat", !etatActuel);
   },
-  "submit .new-acc-form"(event, instance) {
+  "submit .new-acc-form"(event) {
     event.preventDefault();
 
     const target = event.target;

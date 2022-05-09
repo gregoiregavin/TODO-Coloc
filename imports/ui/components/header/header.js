@@ -6,7 +6,7 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 Template.header.events({
     "click #logout" () {
         Meteor.logout(
-            FlowRouter.go('/login')
+            FlowRouter.go('/')
         );
     },
 });

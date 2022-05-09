@@ -6,22 +6,31 @@
 
             {{#if currentUser}}
             
-            {{> nav}}
+            <!--{{> nav}}-->
 
-            {{#if isActiveRoute 'dashboard'}}
-                {{> dashboard}}
-            {{/if}}
+            <nav id="mainNav">
+                <ul class="menu">
+                    <li class="menu-item">
+                        <a href="" id="dashboard">dashboard</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="" id="leaderboard">scores</a>
+                    </li>
+                </ul>
+            </nav>
 
-            {{#if isActiveRoute 'leaderboard'}}
-                {{> leaderboard}}
-            {{/if}}
+            {{ #if isDashboard }}
+                {{> dashboard }}
+            {{ /if }}
 
-            {{/if}}
+            {{ #if isLeaderboard }}
+                {{> leaderboard }}
+            {{ /if }}
 
-            {{#if isActiveRoute 'login'}}
+            {{else}}
                 {{> login}}
             {{/if}}
-            
+
             {{> footer}}
             
         </div>

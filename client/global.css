@@ -202,7 +202,8 @@ button:hover {
 
 .app {
   border: solid var(--spacing-6) var(--color-primary);
-  min-height: 100vh;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .main-container {
