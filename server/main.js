@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { PieceCollection } from 'meteor/meteor';
 
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';
