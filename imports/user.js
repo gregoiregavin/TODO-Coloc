@@ -5,4 +5,3 @@ const getUser = () => {
 export const isUserLogged = () => {
     return !!getUser();
 }
-

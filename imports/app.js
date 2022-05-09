@@ -2,10 +2,10 @@
 import './app.html';
 
 // Templates de pages
-import './ui/pages/login/login'
-import './ui/pages/dashboard/dashboard'
-import './ui/pages/leaderboard/leaderboard'
-import './ui/pages/notfound/404'
+import './ui/ecrans/login/login'
+import './ui/ecrans/dashboard/dashboard'
+import './ui/ecrans/leaderboard/leaderboard'
+import './ui/ecrans/notfound/404'
 
 // Composants
 import './ui/components/header/header'
