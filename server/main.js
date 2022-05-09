@@ -10,4 +10,9 @@ Meteor.startup(() => {
           password: SEED_PASSWORD,
         });
       }
+    if (PieceCollection.find()) {
+       [
+
+        ].forEach(pieceText => insertPiece(pieceText, user))
+      }
 });
