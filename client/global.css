@@ -57,6 +57,10 @@
   --fontSize-7: 2.986rem;
   --color-primary: #A28EE0;
   --color-accent: #604E94;
+  --color-success: #77E07E;
+  --color-warning: #E0D98D;
+  --color-error: #E0AFA4;
+  --color-gray-dark:#545454;
   --color-gray-medium: #868686;
   --color-gray-light: #f4f4f4;
   --color-heading: #1a202c;
@@ -150,6 +154,7 @@ p {
 a {
   color: var(--color-primary);
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
@@ -181,7 +186,7 @@ button {
 	border: none;
   background-color: var(--color-accent);
   color: white;
-	outline:none;
+	outline: none;
   cursor: pointer;
   height: var(--spacing-12);
   transition: background-color 0.1s ease-out 100ms;
@@ -195,7 +200,7 @@ button:hover {
 
 /* Custom classes */
 
-.global-wrapper {
+.app {
   border: solid var(--spacing-6) var(--color-primary);
   min-height: 100vh;
 }
@@ -203,5 +208,4 @@ button:hover {
 .main-container {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
-  padding: var(--spacing-10) var(--spacing-5);
 }

@@ -25,14 +25,11 @@
 .login-form input,
 .new-acc-form input {
     text-align: center;
+    line-height: var(--lineHeight-relaxed);
 }
 
 .login-form button,
 .new-acc-form button {
     margin: var(--spacing-4) auto 0 auto;
     width: 50%;
-}
-
-.message {
-    color: red;
 }

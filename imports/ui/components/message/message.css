@@ -1,0 +1,45 @@
+#messages {
+    font-family: var(--fontFamily-sans);
+    position: fixed;
+    top: var(--spacing-10);
+    width: calc(100% - var(--spacing-12));
+    text-align: center;
+}
+
+.message {
+    margin: auto;
+    border-radius: var(--spacing-2);
+    cursor: pointer;
+    max-width: fit-content;
+}
+
+.message > p {
+    padding: var(--spacing-3);
+    color: black;
+}
+
+.message.success {
+    background-color: var(--color-success);
+}
+
+.message.success > p::before {
+    content: "✔️";
+    padding-right: var(--spacing-3);
+}
+
+.message.warning {
+    background-color: var(--color-warning);
+}
+
+.message.warning> p::before {
+    content: "⚠️";
+    padding-right: var(--spacing-3);
+}
+
+.message.error {
+    background-color: var(--color-error);
+}
+.message.error> p::before {
+    content: "❌";
+    padding-right: var(--spacing-3);
+}
