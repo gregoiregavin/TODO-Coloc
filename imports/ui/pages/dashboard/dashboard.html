@@ -1,7 +1,7 @@
 <template name ="dashboard">
     <div class="dashboard">
         <h1>{Nom de la colocation}</h1>
-        <div>{{> form3 }}</div>
+        <div>{{> form_piece }}</div>
         <h2>{Pièce 1}</h2>
         <ul>
             <li>{tâche}</li>
@@ -26,7 +26,9 @@
     </div>
 </template>
 
-<template name="form3">
+
+
+<template name="form_piece">
     <form class="piece-form">
     <input type="text" name="text" placeholder="Type to add a piece" />
     <button type="submit">Add piece</button>
