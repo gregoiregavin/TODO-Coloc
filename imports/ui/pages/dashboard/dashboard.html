@@ -23,10 +23,16 @@
         <ul class="pieces">
             {{#each pieces}} {{> piece}} {{/each}}
         </ul>
+       
     </div>
 </template>
 
-
+ <template name="piece">
+        <li>
+            <span>{{piece}}</span>
+            <button class="delete">&times;</button>
+        </li>
+</template>
 
 <template name="form_piece">
     <form class="piece-form">
