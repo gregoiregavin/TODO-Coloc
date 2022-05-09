@@ -19,8 +19,6 @@ import { creerRoute } from "./router";
 creerRoute('/', "login", "app");
 creerRoute('*', "404", "404");
 
-// https://docs.meteor.com/api/reactive-dict.html#ReactiveDict-get
-// https://www.blazejs.org/api/spacebars.html
 Template.app.onCreated(function () {
     this.state = new ReactiveDict();
     this.state.set('ecran', 'dashboard');
@@ -48,7 +46,6 @@ Template.app.helpers({
 Template.app.events({
     'click #dashboard'(event, inst) {
         inst.state.set('ecran', 'dashboard');
-        //console.log(inst.state.get('ecran'));
     },
     'click #leaderboard'(event, inst) {
         inst.state.set('ecran', 'leaderboard');

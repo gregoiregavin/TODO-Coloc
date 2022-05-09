@@ -6,18 +6,7 @@
 
             {{#if currentUser}}
             
-            <!--{{> nav}}-->
-
-            <nav id="mainNav">
-                <ul class="menu">
-                    <li class="menu-item">
-                        <a href="" id="dashboard">dashboard</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="" id="leaderboard">scores</a>
-                    </li>
-                </ul>
-            </nav>
+            {{> nav}}
 
             {{ #if isDashboard }}
                 {{> dashboard }}
