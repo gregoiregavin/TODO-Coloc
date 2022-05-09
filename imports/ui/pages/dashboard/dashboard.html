@@ -14,7 +14,7 @@
             <li>{tâche}</li>
             <li>{tâche}</li>
         </ul>
-        <h2>{Pièce 3}</h2>
+        <h2>{{>nomPiece}}</h2>
         <ul>
             <li>{tâche}</li>
             <li>{tâche}</li>
@@ -27,9 +27,9 @@
     </div>
 </template>
 
- <template name="piece">
+ <template name="nomPiece">
         <li>
-            <span>{{piece}}</span>
+            <span>{{nomPiece}}</span>
             <button class="delete">&times;</button>
         </li>
 </template>
