@@ -8,10 +8,31 @@ export const toutesLesPieces = () => {
 }
 
 // Rajoute une Piece dans la collection
-export const ajouterPiece = (nomPiece) => {
+//export const ajouterPiece = (nomPiece) => {
 
-    Pieces.insert({
-        nom: nomPiece,
-        dateCreation: new Date(),
+ //   Pieces.insert({
+ //       nom: nomPiece,
+  //      dateCreation: new Date(),
+ //   });
+//};
+
+
+Template.form3.events({
+  'submit .piece-form'(event) {
+    // Prevent default browser form submit
+    event.preventDefault();
+
+    // Get value from form element
+    const { target } = event;
+    const text = target.text.value;
+
+    // Insert a task into the collection
+    PieceCollection.insert({
+      text,
+      createdAt: new Date(), // current time
     });
-};
+
+    // Clear form
+    target.text.value = '';
+  },
+});
