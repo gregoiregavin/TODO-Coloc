@@ -1,14 +1,13 @@
 <template name ="app">
     <div class="app">
         <div class="main-container">
+            
             {{> header}}
 
-            {{#if isActiveRoute 'login'}}
-                {{> login}}
-            {{/if}}
-
-            {{#if isUserLogged}}
+            {{#if currentUser}}
             
+            {{> nav}}
+
             {{#if isActiveRoute 'dashboard'}}
                 {{> dashboard}}
             {{/if}}
@@ -17,6 +16,10 @@
                 {{> leaderboard}}
             {{/if}}
 
+            {{/if}}
+
+            {{#if isActiveRoute 'login'}}
+                {{> login}}
             {{/if}}
             
             {{> footer}}

@@ -2,7 +2,7 @@
 
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra'; 
 
-export const creerPage = (url, titre, template) => {
+export const creerRoute = (url, titre, template) => {
 
     FlowRouter.route(url, {
         name: titre,

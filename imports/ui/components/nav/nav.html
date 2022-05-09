@@ -1,0 +1,16 @@
+<template name="nav">
+    <nav id="mainNav">
+        <ul class="menu">
+            <li class="menu-item">
+                <a class="{{isActivePath '/'}}" href="{{urlFor 'dashboard'}}">
+                    dashboard
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="{{isActivePath '/leaderboard'}}" href="{{urlFor 'leaderboard'}}">
+                    scores
+                </a>
+            </li>
+        </ul>
+    </nav>
+</template>
