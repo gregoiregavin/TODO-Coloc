@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Piece } from '../imports/collections/Pieces';
+import { Pieces } from '../imports/collections/Pieces';
 
-const insertPiece = pieceText => Piece.insert({ text: pieceText, userId: user._id, createdAt: new Date(), });
+const insertPiece = pieceText => Pieces.insert({ text: pieceText, userId: user._id, createdAt: new Date(), });
 
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';
@@ -13,7 +13,7 @@ Meteor.startup(() => {
           password: SEED_PASSWORD,
         });
       }
-    if (Piece.find()) {
+    if (Pieces.find()) {
       [
        
       ].forEach(pieceText => insertPiece(pieceText, user))

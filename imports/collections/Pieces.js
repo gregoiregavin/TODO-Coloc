@@ -1,6 +1,6 @@
 import { Mongo } from 'meteor/mongo';
  
-export const Piece = new Mongo.Collection('pieces');
+export const Pieces = new Mongo.Collection('pieces');
 
 // Renvoie la liste de toutes les Pieces 
 export const toutesLesPieces = () => {
