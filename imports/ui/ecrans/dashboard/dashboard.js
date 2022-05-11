@@ -12,11 +12,16 @@ Template.dashboard.helpers({
 Template.dashboard.events({
     "submit .js-ajouter-piece"(event){
         event.preventDefault();
-       const nomPiece = event.target.text.value
+      // const nomPiece = event.target.text.value
+       const { target } = event;
+       const nomPiece = target.text.value;
 
        PieceCollection.insert({
             nom: nomPiece,
             dateCreation: new Date(),
           }); 
+
+        target.text.value = '';
     }
 })
+
