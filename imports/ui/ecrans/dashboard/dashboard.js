@@ -9,7 +9,7 @@ Template.dashboard.helpers({
      },
    });
 
-Template.dashboard.events({
+Template.form_piece.events({
     "submit .js-ajouter-piece"(event){
         event.preventDefault();
       // const nomPiece = event.target.text.value
