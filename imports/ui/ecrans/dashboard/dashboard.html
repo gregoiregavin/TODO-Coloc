@@ -2,33 +2,13 @@
   <div class="dashboard">
     <h1>{Nom de la colocation}</h1>
     {{> form_piece }}
-    <h2>{Pièce 1}</h2>
-    <ul>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-    </ul>
-    <h2>{Pièce 2}</h2>
-    <ul>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-    </ul>
-    <h2>{Pièce 3}</h2>
-    <ul>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-    </ul>
-    <ul class="pieces">
-      {{#each pieces}} {{> piece}} {{/each}}
-    </ul>
+    {{> piece}}
   </div>
 </template>
 
 <template name="piece">
   <li>
-    <span>{{piece}}</span>
+    <span>{{nom}}</span>
     <button class="delete">&times;</button>
   </li>
 </template>
