@@ -1,11 +1,11 @@
 import './dashboard.html'
 import '../../components/header/header'
 import '../../components/footer/footer'
-import { Pieces } from '../../../collections/Pieces';
+import { PieceCollection } from '../../../collections/Pieces';
 
 Template.dashboard.helpers({
      pieces() {
-       return Pieces.find({});
+       return PieceCollection.find({});
      },
    });
 
@@ -14,7 +14,7 @@ Template.dashboard.events({
         event.preventDefault();
        const nomPiece = event.target.text.value
 
-        Pieces.insert({
+       PieceCollection.insert({
             nom: nomPiece,
             dateCreation: new Date(),
           }); 
