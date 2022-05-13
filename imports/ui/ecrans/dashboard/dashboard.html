@@ -2,6 +2,7 @@
   <div class="dashboard">
     <h1>{Nom de la colocation}</h1>
     {{> form_piece }}
+    {{> form_tache }}
     <h2>{Pièce 1}</h2>
     <ul>
       <li>{tâche}</li>
@@ -45,5 +46,12 @@
   <form class="js-ajouter-piece">
     <input type="text" name="text" placeholder="Type to add a piece" />
     <button type="submit">Add piece</button>
+  </form>
+</template>
+
+<template name="form_tache">
+  <form class="js-ajouter-tache">
+    <input type="text" name="text" placeholder="Type to add a tache" />
+    <button type="submit">Add tache</button>
   </form>
 </template>
