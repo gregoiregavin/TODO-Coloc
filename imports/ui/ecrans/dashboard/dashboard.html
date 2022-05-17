@@ -3,24 +3,6 @@
     <h1>{Nom de la colocation}</h1>
     {{> form_piece }}
     {{> form_tache }}
-    <h2>{Pièce 1}</h2>
-    <ul>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-    </ul>
-    <h2>{Pièce 2}</h2>
-    <ul>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-    </ul>
-    <h2>{Pièce 3}</h2>
-    <ul>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-      <li>{tâche}</li>
-    </ul>
 
     {{#each pieces}}
       {{> piece}}
@@ -29,7 +11,7 @@
 </template>
 
 <template name="piece">
-  <h2>{Pièce 3}</h2>
+  <h2>{{nom}}</h2>
   <ul class="pieces">
     {{#each taches}} {{> tache}} {{/each}}
   </ul>
@@ -37,7 +19,7 @@
 
 <template name="tache">
   <li>
-    <span>{{Piece}}</span>
+    <span>{{nom}}</span>
     <button class="delete">&times;</button>
   </li>
 </template>
@@ -52,6 +34,11 @@
 <template name="form_tache">
   <form class="js-ajouter-tache">
     <input type="text" name="text" placeholder="Type to add a tache" />
+    <select name="choisir_piece" id="select_piece">
+      {{#each pieces}}
+        <option value="{{_id}}">{{nom}}</option>
+      {{/each}}
+    </select>
     <button type="submit">Add tache</button>
   </form>
 </template>
