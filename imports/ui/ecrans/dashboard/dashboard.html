@@ -2,14 +2,16 @@
   <div class="dashboard">
     <h1>{Nom de la colocation}</h1>
     {{> form_piece }}
-    {{> piece}}
+    <li>
+      {{#each nomPieces}} {{> nomPiece}} {{/each}}
+    </li>
   </div>
 </template>
 
 <template name="piece">
   <li>
-    <span>{{nom}}</span>
-    <button class="delete">&times;</button>
+      <span>{{text}}</span>
+      <button class="delete">&times;</button>
   </li>
 </template>
 

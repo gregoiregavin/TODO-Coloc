@@ -1,4 +1,4 @@
-import './dashboard.html'
+import { Template } from 'meteor/templating';
 import '../../components/header/header'
 import '../../components/footer/footer'
 import { PieceCollection } from '../../../collections/Pieces'

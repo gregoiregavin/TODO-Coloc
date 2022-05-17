@@ -1,4 +1,6 @@
 import { Mongo } from "meteor/mongo";
+import { Template } from 'meteor/templating';
+import '../ui/ecrans/dashboard/dashboard.js'
 
 export const PieceCollection = new Mongo.Collection("pieces");
 
@@ -14,3 +16,23 @@ export const ajouterPiece = (nomPiece) => {
     dateCreation: new Date(),
   });
 };
+
+// Template.piece.events({
+//   "submit .piece-form"(event) {
+//     // Prevent default browser form submit
+//     event.preventDefault();
+
+//     // Get value from form element
+//     const target = event.target;
+//     const nomPiece = target.nom.value;
+
+//     // Insert a task into the collection
+//     PieceCollection.insert({
+//       nom : nomPiece,
+//       dateCreation: new Date(), // current time
+//     });
+
+//     // Clear form
+//     target.nom.value = '';
+//   }
+// })
