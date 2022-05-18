@@ -69,6 +69,24 @@ Template.tache.events({
   }
 });
 
+Template.tache.events({
+  'click .delete'() {
+    TacheCollection.remove(this._id);
+  },
+  'click .done'() {
+    TacheCollection.update(this._id, {
+      $set: { dateDone: new Date () },
+    });
+    console.log('salut !', this._id);
+  }
+});
+
+Template.piece.events({
+  'click .delete'() {
+    PieceCollection.remove(this._id);
+  },
+});
+
 Template.registerHelper('formatDate', function(date) { //Comme c'est un register helper on peut l'utiliser partout
   const mois = date.getMonth() + 1;
   const jour = date.getDate();

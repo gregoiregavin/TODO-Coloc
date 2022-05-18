@@ -11,10 +11,10 @@
 </template>
 
 <template name="piece">
-  <h2>{{nom}}</h2>
+  <h2>{{nom}} <button class="delete">&times;</button> </h2> 
   <ul class="pieces">
     {{#each taches}} {{> tache}} {{/each}}
-  </ul>
+  </ul> 
 </template>
 
 <template name="tache">
