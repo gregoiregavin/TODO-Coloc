@@ -20,6 +20,8 @@
 <template name="tache">
   <li>
     <span>{{nom}}</span>
+    <span> Fait le : {{formatDate dateDone}}</span> <!-- Comment formater la date -->
+    <button class="done">done</button>
     <button class="delete">&times;</button>
   </li>
 </template>
