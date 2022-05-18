@@ -3,6 +3,7 @@ import '../../components/header/header'
 import '../../components/footer/footer'
 import { PieceCollection } from '../../../collections/Pieces';
 import { TacheCollection } from '../../../collections/Taches';
+import { ScoreCollection } from '../../../collections/Score';
 
 Template.dashboard.helpers({
   pieces() {
@@ -65,7 +66,9 @@ Template.tache.events({
     TacheCollection.update(this._id, {
       $set: { dateDone: new Date () },
     });
-    console.log('salut !', this._id);
+    ScoreCollection.update(this._id, {
+      $set: { score : score+1 },
+    });
   }
 });
 
