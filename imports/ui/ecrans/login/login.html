@@ -15,6 +15,7 @@
             <button id="creer-compte" type="submit">créer le compte</button>
         </form>
         <p><a href="#" id="login">j'ai déjà un compte</a></p>
+        {{> form_colocation}}
         {{ else }}
         <h1>Connexion</h1>
         <form class="login-form">
@@ -30,3 +31,21 @@
         {{ /if }}
     </div>
 </template>
+
+<template name="form_colocation">
+    <form class="js-ajouter-colocation">
+    {{ #if creationDeColoc }}
+        <select name="choisir_colocation" id="select_colocation">
+        {{#each colocations}}
+            <option value="{{_id}}">{{nom}}</option>
+        {{/each}}
+        </select>
+        <button type="submit"> S'ajouter à cette colocation</button> 
+        <p><a href="#" id="creationDeColoc">créer une nouvelle colocation</a></p>
+    {{ else }}
+        <input type="text" name="text" placeholder="Type to add a colocation" />
+        <button type="submit">Add colocation</button>
+        <p><a href="#" id="creationDeColoc"> J'ai déjà une collocation</a></p>
+    {{/if}}
+    </form>
+  </template>

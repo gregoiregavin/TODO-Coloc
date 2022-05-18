@@ -69,17 +69,6 @@ Template.tache.events({
   }
 });
 
-Template.tache.events({
-  'click .delete'() {
-    TacheCollection.remove(this._id);
-  },
-  'click .done'() {
-    TacheCollection.update(this._id, {
-      $set: { dateDone: new Date () },
-    });
-    console.log('salut !', this._id);
-  }
-});
 
 Template.piece.events({
   'click .delete'() {

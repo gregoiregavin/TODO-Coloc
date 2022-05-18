@@ -2,6 +2,7 @@ import "./login.html"
 import "./login.css"
 import "../../components/header/header"
 import "../../components/footer/footer"
+import { Colocations } from '../../../collections/Colocations'
 
 import { Template } from "meteor/templating"
 import { ReactiveDict } from "meteor/reactive-dict"
@@ -45,8 +46,42 @@ Template.login.events({
   },
 });
 
+
+Template.form_colocation.events({
+  "submit .js-ajouter-colocation"(event){
+    event.preventDefault();
+  // const nomColocation = event.target.text.value
+   const { target } = event;
+   const nomColoc = target.text.value;
+
+   Colocations.insert({
+        nom: nomColoc,
+        dateCreation: new Date(),
+      }); 
+
+    target.text.value = '';
+}
+})
+
 Template.login.helpers({
   creationDeCompte() {
     return Template.instance().state.get("etat")
-  }
+  },
+  Colocations() {
+    return Colocations.find({});
+  },
 });
+
+Template.form_colocation.onCreated(function formColocOnCreated() {
+  this.state = new ReactiveDict();
+  this.state.set('new_coloc', true);
+});
+
+Template.form_colocation.helpers({
+  Colocations() {
+    return Colocations.find({});
+  },
+  creationDeColoc() {
+    return Template.instance().state.get("new_coloc")
+  },
+})
