@@ -70,6 +70,9 @@ Template.login.helpers({
   Colocations() {
     return Colocations.find({});
   },
+  sajouterauneColoc() {
+    return Colocations.find({});
+  },
 });
 
 Template.form_colocation.onCreated(function formColocOnCreated() {
@@ -83,5 +86,8 @@ Template.form_colocation.helpers({
   },
   creationDeColoc() {
     return Template.instance().state.get("new_coloc")
+  },
+  sajouterauneColoc() {
+    return Template.instance().state.get("etat")
   },
 })
