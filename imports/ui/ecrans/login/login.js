@@ -60,7 +60,20 @@ Template.form_colocation.events({
       }); 
 
     target.text.value = '';
-}
+},
+  "submit .js-rejoindre-colocation"(event){
+    event.preventDefault();
+  // const nomColocation = event.target.text.value
+  const { target } = event;
+  const nomColoc = target.text.value;
+
+  Colocations.insert({
+        nom: nomColoc,
+        dateCreation: new Date(),
+      }); 
+
+    target.text.value = '';
+  },
 })
 
 Template.login.helpers({
@@ -68,9 +81,6 @@ Template.login.helpers({
     return Template.instance().state.get("etat")
   },
   Colocations() {
-    return Colocations.find({});
-  },
-  sajouterauneColoc() {
     return Colocations.find({});
   },
 });
@@ -86,8 +96,5 @@ Template.form_colocation.helpers({
   },
   creationDeColoc() {
     return Template.instance().state.get("new_coloc")
-  },
-  sajouterauneColoc() {
-    return Template.instance().state.get("etat")
   },
 })

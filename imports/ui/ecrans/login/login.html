@@ -33,19 +33,23 @@
 </template>
 
 <template name="form_colocation">
-    <form class="js-ajouter-colocation">
-    {{ #if creationDeColoc }}
-        <select name="choisir_colocation" id="select_colocation">
-        {{#each colocations}}
-            <option value="{{_id}}">{{nom}}</option>
-        {{/each}}
-        </select>
-        <button type="submit"> S'ajouter à cette colocation</button> 
-        <p><a href="#" id="creationDeColoc">créer une nouvelle colocation</a></p>
-    {{ else }}
-        <input type="text" name="text" placeholder="Type to add a colocation" />
-        <button type="submit">Add colocation</button>
-        <p><a href="#" id="sajouterauneColoc"> J'ai déjà une collocation</a></p>
-    {{/if}}
-    </form>
-  </template>
+    <div class="form-wrap">
+        <form class="js-rejoindre-colocation">
+        {{ #if creationDeColoc }}
+            <select name="choisir_colocation" id="select_colocation">
+            {{#each colocations}}
+                <option value="{{_id}}">{{nom}}</option>
+            {{/each}}
+            </select>
+            <button type="submit"> S'ajouter à cette colocation</button> 
+            <p><a href="#" id="ajouter">créer une nouvelle colocation</a></p>
+        </form>
+        {{ else }}
+        <form class="js-ajouter-colocation"></form>
+            <input type="text" name="text" placeholder="Type to add a colocation" />
+            <button type="submit">Ajouter et créer une colocation</button>
+            <p><a href="#" id="creationDeColoc"> Rejoindre une colocation</a></p>
+        </form>
+        {{/if}}
+    </div>
+</template>
