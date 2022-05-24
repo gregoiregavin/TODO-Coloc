@@ -11,6 +11,7 @@ import { popMessage } from "../../components/message/message"
 
 Template.login.onCreated(function loginContainerOnCreated() {
   this.state = new ReactiveDict();
+  this.state.set('etat', true);
 });
 
 Template.login.events({
@@ -51,7 +52,7 @@ Template.form_colocation.events({
   "submit .js-ajouter-colocation"(event){
     event.preventDefault();
   // const nomColocation = event.target.text.value
-   const { target } = event;
+   const target = event;
    const nomColoc = target.text.value;
 
    Colocations.insert({
