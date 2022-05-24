@@ -14,6 +14,12 @@ Template.login.onCreated(function loginContainerOnCreated() {
   this.state.set('etat', true);
 });
 
+Template.login.helpers({
+  creationDeCompte() {
+    return Template.instance().state.get("etat")
+  },
+});
+
 Template.login.events({
   "click #creation-compte, click #login"(event, instance) {
     event.preventDefault();
@@ -31,6 +37,13 @@ Template.login.events({
       username: name,
       password: password,
     });
+
+    /*
+    if (je cree une nouvelle coloc) {
+      Colocations.insert({})
+    } else {
+      Colocations.update({})
+    }*/
   },
   "submit .login-form"(event) {
     event.preventDefault()
@@ -47,48 +60,24 @@ Template.login.events({
   },
 });
 
-
-Template.form_colocation.events({
-  "submit .js-ajouter-colocation"(event){
-    event.preventDefault();
-  // const nomColocation = event.target.text.value
-   const target = event;
-   const nomColoc = target.text.value;
-
-   Colocations.insert({
-        nom: nomColoc,
-        dateCreation: new Date(),
-      }); 
-
-    target.text.value = '';
-}
-})
-
-Template.login.helpers({
-  creationDeCompte() {
-    return Template.instance().state.get("etat")
-  },
-  Colocations() {
-    return Colocations.find({});
-  },
-  sajouterauneColoc() {
-    return Colocations.find({});
-  },
-});
-
 Template.form_colocation.onCreated(function formColocOnCreated() {
   this.state = new ReactiveDict();
   this.state.set('new_coloc', true);
 });
 
 Template.form_colocation.helpers({
-  Colocations() {
+  colocations() {
     return Colocations.find({});
   },
   creationDeColoc() {
-    return Template.instance().state.get("new_coloc")
-  },
-  sajouterauneColoc() {
-    return Template.instance().state.get("etat")
+    return Template.instance().state.get("new_coloc");
+  }
+})
+
+Template.form_colocation.events({
+  "click #creationDeColoc, click #sajouterauneColoc"(event, instance) {
+    event.preventDefault();
+    const etatActuel = instance.state.get("new_coloc")
+    instance.state.set("new_coloc", !etatActuel)
   },
 })
