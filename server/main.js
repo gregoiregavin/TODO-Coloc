@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { PieceCollection } from '../imports/collections/Pieces';
 import { TacheCollection } from '../imports/collections/Taches';
+import { ScoreCollection } from '../imports/collections/Scores';
 
 const insertPiece = pieceText => PieceCollection.insert({ text: pieceText, userId: user._id, createdAt: new Date(), });
 const insertTache = tacheText => TacheCollection.insert({ text: tacheText, userId: user._id, createdAt: new Date(), });

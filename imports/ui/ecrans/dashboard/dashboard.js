@@ -3,7 +3,7 @@ import '../../components/header/header'
 import '../../components/footer/footer'
 import { PieceCollection } from '../../../collections/Pieces';
 import { TacheCollection } from '../../../collections/Taches';
-import { ScoreCollection } from '../../../collections/Score';
+import { ScoreCollection } from '../../../collections/Scores';
 
 Template.dashboard.helpers({
   pieces() {
@@ -66,8 +66,8 @@ Template.tache.events({
     TacheCollection.update(this._id, {
       $set: { dateDone: new Date () },
     });
-    ScoreCollection.update(this._id, {
-      $set: { score : score+1 },
+    ScoreCollection.update(this._id, { // Avec ça ça s'ajoute sur la tâche actuelle => corriger pour que ce soit sur l'identifiant
+      $inc: { score : 1 },
     });
   }
 });
