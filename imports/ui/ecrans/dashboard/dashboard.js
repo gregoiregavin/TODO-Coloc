@@ -3,6 +3,7 @@ import '../../components/header/header'
 import '../../components/footer/footer'
 import { PieceCollection } from '../../../collections/Pieces';
 import { TacheCollection } from '../../../collections/Taches';
+import { Colocations } from '../../../collections/Colocations';
 
 Template.dashboard.helpers({
   pieces() {
@@ -65,7 +66,7 @@ Template.tache.events({
     TacheCollection.update(this._id, {
       $set: { dateDone: new Date () },
     });
-    console.log('salut !', this._id);
+    Colocations.update() //this._id ??? Il faudrait lier à la tâche ?
   }
 });
 
