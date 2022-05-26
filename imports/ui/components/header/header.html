@@ -7,7 +7,7 @@
             </div>
             {{#if currentUser}}
                 <div class="top-nav">
-                    <p>{NomUtilisateur} <a id="logout">(logout)</a></p>
+                    <p>{{currentUser.username}} <a id="logout">(logout)</a></p>
                 </div>
             {{/if}}
         </div>
