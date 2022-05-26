@@ -25,10 +25,10 @@ Template.login.events({
     const name = target.username.value
     const password = target.password.value
 
-    Accounts.createUser({
-      username: name,
-      password: password,
-    });
+    Accounts.createUser({ 
+      username: name, 
+      password: password
+    }, popMessage)
   },
   "submit .login-form"(event) {
     event.preventDefault()
@@ -37,11 +37,7 @@ Template.login.events({
     const username = target.username.value
     const password = target.password.value
 
-    //checkAccount = Accounts.findUserByEmail(username) // CÔTÉ SERVEUR :'(
-    //console.log("CheckAccount: " + checkAccount)
-
-    test = Meteor.loginWithPassword(username, password)
-    //console.log("Username: " + test.username)
+    Meteor.loginWithPassword(username, password, popMessage("success", "Connexion réussie"))
   },
 });
 
