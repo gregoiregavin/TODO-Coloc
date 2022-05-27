@@ -12,12 +12,19 @@ import { popMessage } from "../../components/message/message"
 Template.login.onCreated(function loginContainerOnCreated() {
   this.state = new ReactiveDict();
   this.state.set('etat', true);
+  this.state.set('new_coloc', true);
 });
 
 Template.login.helpers({
   creationDeCompte() {
     return Template.instance().state.get("etat")
   },
+  colocations() {
+    return Colocations.find({});
+  },
+  creationDeColoc() {
+    return Template.instance().state.get("new_coloc");
+  }
 });
 
 Template.login.events({
@@ -26,7 +33,12 @@ Template.login.events({
     const etatActuel = instance.state.get("etat")
     instance.state.set("etat", !etatActuel)
   },
-  "submit .new-acc-form"(event) {
+  "click #creationDeColoc, click #rejoindreColoc"(event, instance) {
+    event.preventDefault();
+    const etatActuel = instance.state.get("new_coloc")
+    instance.state.set("new_coloc", !etatActuel)
+  },
+  "submit .new-acc-form"(event, instance) {
     event.preventDefault()
 
     const target = event.target
@@ -38,12 +50,23 @@ Template.login.events({
       password: password,
     });
 
-    /*
-    if (je cree une nouvelle coloc) {
-      Colocations.insert({})
+    if (instance.state.get("new_coloc")) { // tester lq var reactive
+      Colocations.update({
+        nom: nomUser,
+        idUser: user,
+        idColoc: coloc,
+        dateCreation: new Date(),
+        dateDone: new Date(),
+      })
     } else {
-      Colocations.update({})
-    }*/
+      Colocations.insert({
+        nom: nomUser,
+        idUser: user,
+        idColoc: coloc,
+        dateCreation: new Date(),
+        dateDone: new Date(),
+      })
+    }
   },
   "submit .login-form"(event) {
     event.preventDefault()
@@ -60,24 +83,11 @@ Template.login.events({
   },
 });
 
-Template.form_colocation.onCreated(function formColocOnCreated() {
-  this.state = new ReactiveDict();
-  this.state.set('new_coloc', true);
-});
 
-Template.form_colocation.helpers({
-  colocations() {
-    return Colocations.find({});
-  },
-  creationDeColoc() {
-    return Template.instance().state.get("new_coloc");
-  }
-})
-
-Template.form_colocation.events({
-  "click #creationDeColoc, click #sajouterauneColoc"(event, instance) {
-    event.preventDefault();
-    const etatActuel = instance.state.get("new_coloc")
-    instance.state.set("new_coloc", !etatActuel)
-  },
-})
+//Template.form_colocation.events({
+//  "click #creationDeColoc, click #sajouterauneColoc"(event, instance) {
+ //   event.preventDefault();
+ //   const etatActuel = instance.state.get("new_coloc")
+ //   instance.state.set("new_coloc", !etatActuel)
+//  },
+//})
