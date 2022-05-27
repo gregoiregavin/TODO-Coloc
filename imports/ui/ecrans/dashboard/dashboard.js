@@ -68,8 +68,8 @@ Template.tache.events({
     });
     Colocations.update( //copier-coller du stackoverflow de Joël
       { $inc : { membres: { ["$[index]"]: { score : 1 } } } },
-      { arrayFilters: [ { index: Colocations.findIndex(membres.userId === Meteor.user(true)) } ] },
-    ) 
+      { arrayFilters: [ { index: Colocations.findIndex(membres.username === Meteor.user(true)) } ] },
+    )
     //il faut faire un index finder pour avoir le bon utilisateur et update selon le stackoverflow
     // Index finder : 
     // const fruits = ["pomme", "banane", "melon", "fraise", "raisin"];   Pour nous c'est le tableau des membres
@@ -78,6 +78,7 @@ Template.tache.events({
         // find index iduser === meteor.user (true)
     // console.log(indice); // 3
     // console.log(fruits[indice]); // fraise 
+    console.log('this._is', this._id)
   }
 });
 

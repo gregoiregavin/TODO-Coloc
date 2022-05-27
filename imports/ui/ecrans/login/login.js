@@ -51,20 +51,25 @@ Template.login.events({
     });
 
     if (instance.state.get("new_coloc")) { // tester lq var reactive
-      Colocations.update({
-        nom: nomUser,
-        idUser: user,
-        idColoc: coloc,
-        dateCreation: new Date(),
-        dateDone: new Date(),
-      })
+      const colocId = document.getElementById('select_colocation').value
+      Colocations.update(
+        { _id: colocId},
+        { $push: {
+          membres : {
+            username: name,
+            score: 0,
+          }
+        }}
+      )
     } else {
+      const nomColoc = target.nomColoc.value
       Colocations.insert({
-        nom: nomUser,
-        idUser: user,
-        idColoc: coloc,
+        nom: nomColoc,
         dateCreation: new Date(),
-        dateDone: new Date(),
+        membres: [{
+          username: name,
+          score: 0,
+      }]
       })
     }
   },
