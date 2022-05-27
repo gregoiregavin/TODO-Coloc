@@ -8,7 +8,7 @@ export const toutesLesColocations = () => {
 }
 
 // Rajoute une Colocation dans la collection
-// find index iduserr === mreteor.user (true)
+
 export const ajouterColocation = (nomColoc) => {
     Colocations.insert({
         nom: nomColoc,
