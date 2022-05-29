@@ -9,11 +9,11 @@ Template.app.onCreated(function () {
 Template.app.helpers({
     isLeaderboard() {
         const inst = Template.instance();
-        return inst.state.get('ecran') == "dashboard" ? inst.state.get('ecran') : null
+        return inst.state.get('ecran') == "leaderboard" ? inst.state.get('ecran') : null
     },
     isDashboard() {
         const inst = Template.instance();
-        return inst.state.get('ecran') == "leaderboard" ? inst.state.get('ecran') : null
+        return inst.state.get('ecran') == "dashboard" ? inst.state.get('ecran') : null
     }
 })
 

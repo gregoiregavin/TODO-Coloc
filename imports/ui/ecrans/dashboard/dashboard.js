@@ -69,7 +69,7 @@ Template.tache.events({
     Colocations.update( //copier-coller du stackoverflow de Joël
       { _id : colocId },
       { $inc : { membres: { ["$[index]"]: { score : 1 } } } },
-      { arrayFilters: [ { index: Colocations.colocId.findIndex(membres.username === Meteor.user(true)) } ] },
+      { arrayFilters: [ { index: Colocations.findIndex(membres.username === Meteor.user(true)) } ] },
     )
     //il faut faire un index finder pour avoir le bon utilisateur et update selon le stackoverflow
     // Index finder : 
