@@ -45,23 +45,25 @@ Template.login.events({
     const name = target.username.value
     const password = target.password.value
 
-    Accounts.createUser({ 
-      username: name, 
+    Accounts.createUser({
+      username: name,
       password: password
     }, popMessage)
 
-    // const colocId = "";
+    //const colocId = "";
 
     if (instance.state.get("new_coloc")) { // tester lq var reactive
       colocId = document.getElementById('select_colocation').value
       Colocations.update(
-        { _id: colocId},
-        { $push: {
-          membres : {
-            username: name,
-            score: 0,
+        { _id: colocId },
+        {
+          $push: {
+            membres: {
+              username: name,
+              score: 0,
+            }
           }
-        }}
+        }
       )
     } else {
       const nomColoc = target.nomColoc.value
@@ -71,12 +73,12 @@ Template.login.events({
         membres: [{
           username: name,
           score: 0,
-      }]
+        }]
       })
     }
     console.log(colocId);
     let userId = Meteor.user();
-    Meteor.users.update(userId, {$set: {colocId: colocId}});
+    Meteor.users.update(userId, { $set: { colocId: colocId } });
   },
   "submit .login-form"(event) {
     event.preventDefault()
