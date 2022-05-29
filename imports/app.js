@@ -18,36 +18,3 @@ import { creerRoute } from "./router";
 // Création des routes
 creerRoute('/', "login", "app");
 creerRoute('*', "404", "404");
-
-Template.app.onCreated(function () {
-    this.state = new ReactiveDict();
-    this.state.set('ecran', 'dashboard');
-});
-
-Template.app.helpers({
-    isLeaderboard() {
-        const inst = Template.instance();
-        if (inst.state.get('ecran') == "leaderboard") {
-            return inst.state.get('ecran');
-        } else {
-            return null;
-        }
-    },
-    isDashboard() {
-        const inst = Template.instance();
-        if (inst.state.get('ecran') == "dashboard") {
-            return inst.state.get('ecran');
-        } else {
-            return null;
-        }
-    }
-})
-
-Template.app.events({
-    'click #dashboard'(event, inst) {
-        inst.state.set('ecran', 'dashboard');
-    },
-    'click #leaderboard'(event, inst) {
-        inst.state.set('ecran', 'leaderboard');
-    }
-});

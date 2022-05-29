@@ -1,6 +1,8 @@
 <template name="login">
     <div class="login-wrap">
+
         {{ #if creationDeCompte }}
+
         <h1>Création de compte</h1>
         <form class="new-acc-form">
             <div>
@@ -15,7 +17,9 @@
             <button id="creer-compte" type="submit">créer le compte</button>
         </form>
         <p><a href="#" id="login">j'ai déjà un compte</a></p>
+
         {{ else }}
+
         <h1>Connexion</h1>
         <form class="login-form">
             <div>
@@ -27,6 +31,8 @@
             <button type="submit">se connecter</button>
             <p><a href="#" id="creation-compte">créer un compte</a></p>
         </form>
+
         {{ /if }}
+        
     </div>
 </template>
