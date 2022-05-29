@@ -9,7 +9,7 @@ export const toutesLesTaches = () => {
 
 // Rajoute une Tache dans la collection
 export const ajouterTache = (nomTache) => {
-    TacheCollection.insert({
+  TacheCollection.insert({
     nom: nomTache,
     dateCreation: new Date(),
   });

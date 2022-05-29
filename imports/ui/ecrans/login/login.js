@@ -50,8 +50,10 @@ Template.login.events({
       password: password,
     });
 
+    const colocId = "";
+
     if (instance.state.get("new_coloc")) { // tester lq var reactive
-      const colocId = document.getElementById('select_colocation').value
+      colocId = document.getElementById('select_colocation').value
       Colocations.update(
         { _id: colocId},
         { $push: {
@@ -63,7 +65,7 @@ Template.login.events({
       )
     } else {
       const nomColoc = target.nomColoc.value
-      Colocations.insert({
+      colocId = Colocations.insert({
         nom: nomColoc,
         dateCreation: new Date(),
         membres: [{
@@ -72,6 +74,9 @@ Template.login.events({
       }]
       })
     }
+    console.log(colocId);
+    let userId = Meteor.user();
+    Meteor.users.update(userId, {$set: {colocId: colocId}});
   },
   "submit .login-form"(event) {
     event.preventDefault()
