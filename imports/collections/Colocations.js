@@ -19,3 +19,7 @@ export const toutesLesColocations = () => {
 //         }]
 //     });
 // };
+
+export const nomColocation = () => {
+    return "COUCOU";   
+}
