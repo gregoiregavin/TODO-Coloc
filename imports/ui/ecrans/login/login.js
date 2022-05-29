@@ -50,7 +50,7 @@ Template.login.events({
       password: password
     }, popMessage)
 
-    const colocId = "";
+    // const colocId = "";
 
     if (instance.state.get("new_coloc")) { // tester lq var reactive
       colocId = document.getElementById('select_colocation').value
