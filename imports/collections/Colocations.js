@@ -8,10 +8,14 @@ export const toutesLesColocations = () => {
 }
 
 // Rajoute une Colocation dans la collection
-export const ajouterColocation = (nomColoc) => {
 
-    Colocations.insert({
-        nom: nomColoc,
-        dateCreation: new Date(),
-    });
-};
+// export const ajouterColocation = (nomColoc) => {
+//     Colocations.insert({
+//         nom: nomColoc,
+//         dateCreation: new Date(),
+//         membres: [{
+//             userId: user._id,
+//             score: 0,
+//         }]
+//     });
+// };

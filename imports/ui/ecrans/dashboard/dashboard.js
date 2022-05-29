@@ -3,6 +3,7 @@ import '../../components/header/header'
 import '../../components/footer/footer'
 import { PieceCollection } from '../../../collections/Pieces';
 import { TacheCollection } from '../../../collections/Taches';
+import { Colocations } from '../../../collections/Colocations';
 
 Template.dashboard.helpers({
   pieces() {
@@ -65,7 +66,20 @@ Template.tache.events({
     TacheCollection.update(this._id, {
       $set: { dateDone: new Date () },
     });
-    console.log('salut !', this._id);
+    Colocations.update( //copier-coller du stackoverflow de Joël
+      { _id : colocId },
+      { $inc : { membres: { ["$[index]"]: { score : 1 } } } },
+      { arrayFilters: [ { index: Colocations.colocId.findIndex(membres.username === Meteor.user(true)) } ] },
+    )
+    //il faut faire un index finder pour avoir le bon utilisateur et update selon le stackoverflow
+    // Index finder : 
+    // const fruits = ["pomme", "banane", "melon", "fraise", "raisin"];   Pour nous c'est le tableau des membres
+    // const indice = fruits.findIndex(fruit => fruit === "fraise");      
+        // On cherche l'account qui est log ? Celui qui est log c'est 
+        // find index iduser === meteor.user (true)
+    // console.log(indice); // 3
+    // console.log(fruits[indice]); // fraise 
+    console.log('this._is', this._id)
   }
 });
 
