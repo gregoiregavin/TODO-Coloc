@@ -6,10 +6,13 @@
             <th>User</th>
             <th>Score</th>
         </tr>
-        {{#each colocation}}
-        <!-- Faire avec les users des colocs !! -->
-            <td>{{username}}</td>
-            <td>{{score}}</td>
-        {{/each}}
+        <tr>
+            {{#each colocation in colocations}}
+                {{#each membre in colocations.membres}}
+                    <td>{{> colocation.membre.username}}</td>
+                    <td>{{> colocation.membre.score}}</td>
+                {{/each}}
+            {{/each}}
+        </tr>
     </table>
 </template>

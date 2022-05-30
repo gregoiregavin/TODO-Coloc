@@ -67,7 +67,7 @@ Template.tache.events({
       $set: { dateDone: new Date () },
     });
     Colocations.update( //copier-coller du stackoverflow de Joël
-      { _id : colocId },
+      // { _id : colocId },
       { $inc : { membres: { ["$[index]"]: { score : 1 } } } },
       { arrayFilters: [ { index: Colocations.findIndex(membres.username === Meteor.user(true)) } ] },
     )
