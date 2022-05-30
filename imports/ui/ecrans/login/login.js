@@ -77,7 +77,7 @@ Template.login.events({
       })
     }
     console.log(colocId);
-    let userId = Meteor.user();
+    let userId = Meteor.userId();
     Meteor.users.update(userId, { $set: { colocId: colocId } });
   },
   "submit .login-form"(event) {

@@ -20,6 +20,6 @@ export const toutesLesColocations = () => {
 //     });
 // };
 
-export const nomColocation = () => {
-    return "COUCOU";   
+export const colocId = () => {
+    return Colocations.find({});   
 }
