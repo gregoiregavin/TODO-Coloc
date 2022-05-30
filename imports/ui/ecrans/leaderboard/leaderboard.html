@@ -1,4 +1,17 @@
 <template name="leaderboard">
-    <h1>{Nom de la colocation}</h1>
-    <p>tableau des scores</p>
+    <div class="leaderboard">
+    <h1>{{nomColoc}}</h1>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                {{#each membre}}
+                    <td>{{> colocation.membre.username}}</td>
+                    <td>{{> colocation.membre.score}}</td>
+                {{/each}}
+            </tr>
+        </table>
+    </div>
 </template>
