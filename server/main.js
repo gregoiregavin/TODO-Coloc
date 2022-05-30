@@ -10,26 +10,40 @@ const insertColocation = colocationText => ColocationCollection.insert({ text: c
 const SEED_USERNAME = 'meteorite';
 const SEED_PASSWORD = 'password';
 
+// méthodes qu'on peut appeler depuis le client
+Meteor.methods({
+  //https://stackoverflow.com/questions/63384610/mongodb-increment-a-value-in-a-nested-array-when-filtering-parent-by-id
+  incrementScore({ username, colocId }) {
+    Colocations.update(
+      {
+        _id: colocId,
+        "membres.username": username,
+      },
+      { $inc: { "membres.$.score": 1 } }
+    );
+  },
+});
+
 Meteor.startup(() => {
-    if (!Accounts.findUserByUsername(SEED_USERNAME)) {
-        Accounts.createUser({
-          username: SEED_USERNAME,
-          password: SEED_PASSWORD,
-        });
-      }
-    if (PieceCollection.find().count() === 0) {
-      [
-       
-      ].forEach(pieceText => insertPiece(pieceText, user))
-    }
-    if (TacheCollection.find().count() === 0) {
-      [
-       
-      ].forEach(tacheText => insertTache(tacheText, user))
-    }
-    if (Colocations.find().count() === 0) {
-      [
-       
-      ].forEach(colocationText => insertColocation(colocationText, user))
-    }
+  if (!Accounts.findUserByUsername(SEED_USERNAME)) {
+    Accounts.createUser({
+      username: SEED_USERNAME,
+      password: SEED_PASSWORD,
+    });
+  }
+  if (PieceCollection.find().count() === 0) {
+    [
+
+    ].forEach(pieceText => insertPiece(pieceText, user))
+  }
+  if (TacheCollection.find().count() === 0) {
+    [
+
+    ].forEach(tacheText => insertTache(tacheText, user))
+  }
+  if (Colocations.find().count() === 0) {
+    [
+
+    ].forEach(colocationText => insertColocation(colocationText, user))
+  }
 });

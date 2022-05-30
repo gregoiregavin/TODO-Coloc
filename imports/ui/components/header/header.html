@@ -6,10 +6,15 @@
                 <p>Une app pour une coloc clean</p>
             </div>
             {{#if currentUser}}
-                <div class="top-nav">
-                    <p>{NomUtilisateur} <a id="logout">(logout)</a></p> 
-                    <!-- Le nom utilisateur est relié à rien là -->
-                </div>
+            <div class="top-nav">
+                <p>{NomUtilisateur} <a id="logout">(logout)</a></p>
+                <!-- Le nom utilisateur est relié à rien là -->
+            </div>
+            {{else}}
+            <div class="top-nav">
+                <p><a id="login">(login)</a></p>
+                <!-- Le nom utilisateur est relié à rien là -->
+            </div>
             {{/if}}
         </div>
     </header>

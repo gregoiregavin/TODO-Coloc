@@ -7,6 +7,7 @@ import { Colocations } from '../../../collections/Colocations'
 import { Template } from "meteor/templating"
 import { ReactiveDict } from "meteor/reactive-dict"
 import { Accounts } from "meteor/accounts-base"
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra'
 import { popMessage } from "../../components/message/message"
 
 Template.login.onCreated(function loginContainerOnCreated() {
@@ -48,30 +49,40 @@ Template.login.events({
     Accounts.createUser({
       username: name,
       password: password,
-    });
-
-    if (instance.state.get("new_coloc")) { // tester lq var reactive
-      const colocId = document.getElementById('select_colocation').value
-      Colocations.update(
-        { _id: colocId},
-        { $push: {
-          membres : {
+    }, function (err, val) {
+      if (instance.state.get("new_coloc")) { // tester lq var reactive
+        const colocId = document.getElementById('select_colocation').value
+        Colocations.update(
+          { _id: colocId },
+          {
+            $push: {
+              membres: {
+                username: name,
+                score: 0,
+              }
+            }
+          }
+        )
+      } else {
+        const nomColoc = target.nomColoc.value
+        const colocId = Colocations.insert({
+          nom: nomColoc,
+          dateCreation: new Date(),
+          membres: [{
             username: name,
             score: 0,
+          }]
+        }, function (err, val) {
+          if (err) {
+            alert("C'est la merde")
+          } else {
+            FlowRouter.go('coloc', { colocId: colocId });
           }
-        }}
-      )
-    } else {
-      const nomColoc = target.nomColoc.value
-      Colocations.insert({
-        nom: nomColoc,
-        dateCreation: new Date(),
-        membres: [{
-          username: name,
-          score: 0,
-      }]
-      })
-    }
+        });
+      }
+    });
+
+
   },
   "submit .login-form"(event) {
     event.preventDefault()
@@ -83,7 +94,7 @@ Template.login.events({
     //checkAccount = Accounts.findUserByEmail(username) // CÔTÉ SERVEUR :'(
     //console.log("CheckAccount: " + checkAccount)
 
-    test = Meteor.loginWithPassword(username, password)
+    test = Meteor.loginWithPassword(username, password);
     //console.log("Username: " + test.username)
   },
 });

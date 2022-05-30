@@ -1,27 +1,13 @@
-<template name ="app">
+<template name="app">
     <div class="app">
         <div class="main-container">
-            
+
             {{> header}}
 
-            {{#if currentUser}}
-            
-            {{> nav}}
-
-            {{ #if isDashboard }}
-                {{> dashboard }}
-            {{ /if }}
-
-            {{ #if isLeaderboard }}
-                {{> leaderboard }}
-            {{ /if }}
-
-            {{else}}
-                {{> login}}
-            {{/if}}
+            {{> Template.dynamic template=main}}
 
             {{> footer}}
-            
+
         </div>
         {{> messages}}
     </div>

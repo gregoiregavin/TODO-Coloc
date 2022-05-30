@@ -1,20 +1,21 @@
 <template name="dashboard">
+  {{> nav}}
   <div class="dashboard">
-    <h1>{Nom de la colocation}</h1>
+    <h1>{{nomColoc}}</h1>
     {{> form_piece }}
     {{> form_tache }}
 
     {{#each pieces}}
-      {{> piece}}
+    {{> piece}}
     {{/each}}
   </div>
 </template>
 
 <template name="piece">
-  <h2>{{nom}} <button class="delete">&times;</button> </h2> 
+  <h2>{{nom}} <button class="delete">&times;</button> </h2>
   <ul class="pieces">
     {{#each taches}} {{> tache}} {{/each}}
-  </ul> 
+  </ul>
 </template>
 
 <template name="tache">
@@ -38,7 +39,7 @@
     <input type="text" name="text" placeholder="Type to add a tache" />
     <select name="choisir_piece" id="select_piece">
       {{#each pieces}}
-        <option value="{{_id}}">{{nom}}</option>
+      <option value="{{_id}}">{{nom}}</option>
       {{/each}}
     </select>
     <button type="submit">Add tache</button>
