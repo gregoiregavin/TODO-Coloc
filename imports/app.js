@@ -16,7 +16,7 @@ import './ui/components/message/message'
 import { creerRoute } from "./router";
 
 // Création des routes
-creerRoute('/', "connection", "login");
+creerRoute('/connection', "connection", "login");
 creerRoute('/colocation/:colocId', "coloc", "dashboard");
 creerRoute('/leaderboard/:colocId', "leaderboard", "leaderboard");
 creerRoute('*', "404", "404");

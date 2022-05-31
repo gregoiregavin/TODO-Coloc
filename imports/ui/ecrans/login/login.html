@@ -4,6 +4,7 @@
         {{ #if creationDeCompte }}
 
         <h1>Création de compte</h1>
+
         <form class="new-acc-form">
             <div>
                 <input type="text" placeholder="prénom" name="username" required />
@@ -14,24 +15,31 @@
             <div>
                 <input type="password" placeholder="confirmez mot de passe" name="password-repeat" />
             </div>
+
             {{ #if creationDeColoc }}
+            
             <select name="choisir_colocation" id="select_colocation">
                 {{#each colocations}}
                 <option value="{{_id}}">{{nom}}</option>
                 {{/each}}
             </select>
+
             <!--<button type="submit"> S'ajouter à cette colocation</button>-->
+            
             <p><a href="#" id="creationDeColoc">créer une nouvelle colocation</a></p>
+            
             {{ else }}
-            <input type="text" name="nomColoc" placeholder="Type to add a colocation" />
-            <!--<button type="submit">Add colocation</button>-->
-            <p><a href="#" id="rejoindreColoc"> J'ai déjà une collocation</a></p>
+                <input type="text" name="nomColoc" placeholder="Type to add a colocation" />
+                <!--<button type="submit">Add colocation</button>-->
+                <p><a href="#" id="rejoindreColoc"> J'ai déjà une collocation</a></p>
             {{/if}}
+            
             <button id="creer-compte" type="submit">créer le compte</button>
         </form>
+        
         <p><a href="#" id="login">j'ai déjà un compte</a></p>
 
-        {{ else }}
+        {{ else }} <!--login-->
 
         <h1>Connexion</h1>
         <form class="login-form">
