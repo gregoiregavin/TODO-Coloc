@@ -4,10 +4,14 @@ import '../../components/footer/footer'
 import { PieceCollection } from '../../../collections/Pieces';
 import { TacheCollection } from '../../../collections/Taches';
 import { Colocations } from '../../../collections/Colocations';
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 Template.dashboard.helpers({
+  nomColoc() {
+    return Colocations.findOne({ _id: FlowRouter.getParam('colocId') }).nom;
+  },
   pieces() {
-    return PieceCollection.find({});
+    return PieceCollection.find({ colocId: FlowRouter.getParam('colocId') });
   },
 });
 
@@ -18,43 +22,43 @@ Template.piece.helpers({
 })
 
 Template.form_piece.events({
-    "submit .js-ajouter-piece"(event){
-        event.preventDefault();
-      // const nomPiece = event.target.text.value
-       const { target } = event;
-       const nomPiece = target.text.value;
+  "submit .js-ajouter-piece"(event) {
+    event.preventDefault();
+    // const nomPiece = event.target.text.value
+    const { target } = event;
+    const nomPiece = target.text.value;
 
-       PieceCollection.insert({
-            nom: nomPiece,
-            dateCreation: new Date(),
-          }); 
-
-        target.text.value = '';
-    }
+    PieceCollection.insert({
+      nom: nomPiece,
+      dateCreation: new Date(),
+      colocId: FlowRouter.getParam('colocId'),
+    });
+    target.text.value = '';
+  }
 })
 
 Template.form_tache.helpers({
   pieces() {
-    return PieceCollection.find({});
+    return PieceCollection.find({ colocId: FlowRouter.getParam('colocId') });
   }
 })
 
 Template.form_tache.events({
-  "submit .js-ajouter-tache"(event){
-      event.preventDefault();
+  "submit .js-ajouter-tache"(event) {
+    event.preventDefault();
     // const nomPiece = event.target.text.value
-     const { target } = event;
-     const nomTache = target.text.value;
-     const piece = target.choisir_piece.value;
+    const { target } = event;
+    const nomTache = target.text.value;
+    const piece = target.choisir_piece.value;
 
-     TacheCollection.insert({
-          nom: nomTache,
-          idPiece: piece,
-          dateCreation: new Date(),
-          dateDone: new Date(),
-        }); 
+    TacheCollection.insert({
+      nom: nomTache,
+      idPiece: piece,
+      dateCreation: new Date(),
+      dateDone: new Date(),
+    });
 
-      target.text.value = '';
+    target.text.value = '';
   }
 })
 
@@ -64,9 +68,14 @@ Template.tache.events({
   },
   'click .done'() {
     TacheCollection.update(this._id, {
-      $set: { dateDone: new Date () },
+      $set: { dateDone: new Date() },
     });
-    Colocations.update( //copier-coller du stackoverflow de Joël
+
+    Meteor.call("incrementScore", {
+      username: Meteor.user().username,
+      colocId: FlowRouter.getParam('colocId'),
+    });
+    /* Colocations.update( //copier-coller du stackoverflow de Joël
       // { _id : colocId },
       { $inc : { membres: { ["$[index]"]: { score : 1 } } } },
       { arrayFilters: [ { index: Colocations.findIndex(membres.username === Meteor.user(true)) } ] },
@@ -79,7 +88,7 @@ Template.tache.events({
         // find index iduser === meteor.user (true)
     // console.log(indice); // 3
     // console.log(fruits[indice]); // fraise 
-    console.log('this._is', this._id)
+    console.log('this._is', this._id) */
   }
 });
 
@@ -90,7 +99,7 @@ Template.piece.events({
   },
 });
 
-Template.registerHelper('formatDate', function(date) { //Comme c'est un register helper on peut l'utiliser partout
+Template.registerHelper('formatDate', function (date) { //Comme c'est un register helper on peut l'utiliser partout
   const mois = date.getMonth() + 1;
   const jour = date.getDate();
   return jour + "-" + mois;

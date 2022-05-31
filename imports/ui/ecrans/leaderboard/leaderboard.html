@@ -1,5 +1,5 @@
 <template name="leaderboard">
-    <h1>{Nom de la colocation}</h1>
+    <!-- <h1>{Nom de la colocation}</h1>
     <p>tableau des scores</p>
     <table>
         <tr>
@@ -14,5 +14,20 @@
                 {{/each}}
             {{/each}}
         </tr>
-    </table>
+    </table> -->
+    {{> nav}}
+    <div class="leaderboard">
+        <h1>{{nomColoc}}</h1>
+        <table>
+            <tr>
+                <th>User</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                {{#each membres.username}}
+                    <td>coucou</td>
+                {{/each}}
+            </tr>
+        </table>
+    </div>
 </template>

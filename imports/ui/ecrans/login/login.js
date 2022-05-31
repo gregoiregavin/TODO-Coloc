@@ -7,6 +7,7 @@ import { Colocations } from '../../../collections/Colocations'
 import { Template } from "meteor/templating"
 import { ReactiveDict } from "meteor/reactive-dict"
 import { Accounts } from "meteor/accounts-base"
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra'
 import { popMessage } from "../../components/message/message"
 
 Template.login.onCreated(function loginContainerOnCreated() {
@@ -47,38 +48,41 @@ Template.login.events({
 
     Accounts.createUser({
       username: name,
-      password: password
-    }, popMessage)
-
-    //const colocId = "";
-
-    if (instance.state.get("new_coloc")) { // tester lq var reactive
-      colocId = document.getElementById('select_colocation').value
-      Colocations.update(
-        { _id: colocId },
-        {
-          $push: {
-            membres: {
-              username: name,
-              score: 0,
+      password: password,
+    }, function (err, val) {
+      if (instance.state.get("new_coloc")) { // tester lq var reactive
+        const colocId = document.getElementById('select_colocation').value
+        Colocations.update(
+          { _id: colocId },
+          {
+            $push: {
+              membres: {
+                username: name,
+                score: 0,
+              }
             }
           }
-        }
-      )
-    } else {
-      const nomColoc = target.nomColoc.value
-      colocId = Colocations.insert({
-        nom: nomColoc,
-        dateCreation: new Date(),
-        membres: [{
-          username: name,
-          score: 0,
-        }]
-      })
-    }
-    console.log(colocId);
-    let userId = Meteor.userId();
-    Meteor.users.update(userId, { $set: { colocId: colocId } });
+        )
+      } else {
+        const nomColoc = target.nomColoc.value
+        const colocId = Colocations.insert({
+          nom: nomColoc,
+          dateCreation: new Date(),
+          membres: [{
+            username: name,
+            score: 0,
+          }]
+        }, function (err, val) {
+          if (err) {
+            alert("C'est la merde")
+          } else {
+            FlowRouter.go('coloc', { colocId: colocId });
+          }
+        });
+      }
+    });
+
+
   },
   "submit .login-form"(event) {
     event.preventDefault()
