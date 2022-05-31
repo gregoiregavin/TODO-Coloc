@@ -8,9 +8,8 @@
                 <th>Score</th>
             </tr>
             <tr>
-                {{#each membres}}
-                    <td>{{> membre.username}}</td>
-                    <td>{{> membre.score}}</td>
+                {{#each membre in membres}}
+                    <td>{{membres.username}}</td>
                 {{/each}}
             </tr>
         </table>
