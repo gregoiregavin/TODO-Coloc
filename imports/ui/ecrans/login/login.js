@@ -97,7 +97,7 @@ Template.login.events({
     const username = target.username.value
     const password = target.password.value
 
-    Meteor.loginWithPassword(username, password, popMessage("success", "Connexion réussie"))
+    Meteor.loginWithPassword(username, password, popMessage("success", "Connexion réussie")) // Comment récupérer les erreurs de login renvoyées par loginWithPassword()
 
     FlowRouter.go('coloc', {colocId : "Jolie Coloc"}) // Ici, j'aurais voulu appeler colocationDe() (Colocations.js)
   },
