@@ -1,20 +1,4 @@
 <template name="leaderboard">
-    <!-- <h1>{Nom de la colocation}</h1>
-    <p>tableau des scores</p>
-    <table>
-        <tr>
-            <th>User</th>
-            <th>Score</th>
-        </tr>
-        <tr>
-            {{#each colocation in colocations}}
-                {{#each membre in colocations.membres}}
-                    <td>{{> colocation.membre.username}}</td>
-                    <td>{{> colocation.membre.score}}</td>
-                {{/each}}
-            {{/each}}
-        </tr>
-    </table> -->
     {{> nav}}
     <div class="leaderboard">
         <h1>{{nomColoc}}</h1>
@@ -24,8 +8,9 @@
                 <th>Score</th>
             </tr>
             <tr>
-                {{#each membres.username}}
-                    <td>coucou</td>
+                {{#each membres}}
+                    <td>{{> membre.username}}</td>
+                    <td>{{> membre.score}}</td>
                 {{/each}}
             </tr>
         </table>
