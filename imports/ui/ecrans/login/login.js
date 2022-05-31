@@ -61,6 +61,12 @@ Template.login.events({
                 score: 0,
               }
             }
+          }, function (err, val) {
+            if (err) {
+              alert("C'est la merde")
+            } else {
+              FlowRouter.go('coloc', { colocId: colocId });
+            }
           }
         )
       } else {
