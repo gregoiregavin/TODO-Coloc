@@ -6,18 +6,6 @@ https://todo-coloc.eu.meteorapp.com/
  
 # Idée projet : outil pour organiser les tâches ménagères dans une coloc
 
-A ajouter : 
-~~     Liste des collaborateurs ~~
-~~     Descriptif du projet ~~
-~~     Analyse concurentielle, état de l'art ~~
-    - Analyse de faisabilité
-    - Analyse fonctionelle
-        - Technologies utilisées
-        - Fonctionnalités planifiées/implémentées
-        - Meta : Commencer à **penser à la gestion du projet et à la répartition des tâches** (tâches par composants et non par domaines)
-    - Concept UI/UX, wireframes
-    - Description du MVP
-
 ## Liste des collaborateurs
 Séverine BOCHATAY, Adrien COULON, Grégoire GAVIN
 
@@ -51,33 +39,25 @@ En tant qu'utilisatrice/utilisateur, je peux :
 **Classes/Objets**
 
 Profil :
-- e-mail*
+- non*
 - password*
-- nom*
-- photo
 
 Colocation :
 - nom*
-- adresse*
 - mot de passe*
+- membres (nom et score)*
 
 Tâche :
 - ID*
 - nom*
-- description
-- temps requis*: long/moyen/court (on gagne plus de points avec une tâche longue qu'avec une courte)
 - date de création*
 - attribution (nom du coloc qui s'est attribué la tâche)
 - date de réalisation (quand tâche marquée comme accomplie)
-- délai ?
-- certaines tâches hebdomadaires ? répétition ?
 
 **Pages**
- - Page "Ma coloc", avec les tâches ouvertes, en cours
- - Page "Profil", avec les points, les tâches attribuées, la photo, etc.
- - Page "Création de tâche"
- - Page "login"
- - Page calendrier ?
+ - Page "Dashboard", avec les tâches ouvertes, par pièce, et la possibilité d'en créer des nouvelles.
+ - Page "Leaderboard", avec les noms des différents utilisateurs et le score.
+ - Page "Login"
 
 **Idées ressources / outils** 
 - [Tutorial pour créer une todo (Meteor + React simple)](https://react-tutorial.meteor.com/simple-todos/)
@@ -91,3 +71,10 @@ Tâche :
  - Est-ce qu'il y a une notion de date, de calendrier ou de délai ?
  - Comment rejoint-on une coloc ? (lien unique, mot de passe, etc)
  - ...
+
+**Etat au 31.05.2022**
+
+Nous n'avons pas réussi à créer toutes les fonctionnalités que nous voulions. 
+En effet, nous avons décidé de fixer le score attribué à chaque tâche à 1. Les utilisateurs n'ont donc pas la possibilité de choisir eux-mêmes le nombre de poins.
+Il n'y a pas non plus de moyen de faire augmenter le nombre de point reçu par tâche si cella-là n'a pas été effectué depuis longtemps.
+Dans la page leaderboard, nous rencontrons encore des problèmes pour afficher le nom des utilisateurs et leur score, mais dans l'ensemble nous somme satisfaits de l'application que nous avons créé.
