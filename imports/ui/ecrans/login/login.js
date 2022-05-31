@@ -2,7 +2,7 @@ import "./login.html"
 import "./login.css"
 import "../../components/header/header"
 import "../../components/footer/footer"
-import { Colocations } from '../../../collections/Colocations'
+import { colocationDe, Colocations, toutesLesColocations } from '../../../collections/Colocations'
 
 import { Template } from "meteor/templating"
 import { ReactiveDict } from "meteor/reactive-dict"
@@ -21,7 +21,7 @@ Template.login.helpers({
     return Template.instance().state.get("etat")
   },
   colocations() {
-    return Colocations.find({});
+    return toutesLesColocations();
   },
   creationDeColoc() {
     return Template.instance().state.get("new_coloc");
@@ -98,5 +98,7 @@ Template.login.events({
     const password = target.password.value
 
     Meteor.loginWithPassword(username, password, popMessage("success", "Connexion réussie"))
+
+    FlowRouter.go('coloc', {colocId : colocationDe("Grégoire")})
   },
 });
