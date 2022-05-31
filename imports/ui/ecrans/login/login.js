@@ -12,8 +12,8 @@ import { popMessage } from "../../components/message/message"
 
 Template.login.onCreated(function loginContainerOnCreated() {
   this.state = new ReactiveDict();
-  this.state.set('etat', true);
-  this.state.set('new_coloc', true);
+  this.state.set('etat', false);
+  this.state.set('new_coloc', false);
 });
 
 Template.login.helpers({
@@ -94,12 +94,3 @@ Template.login.events({
     Meteor.loginWithPassword(username, password, popMessage("success", "Connexion réussie"))
   },
 });
-
-
-//Template.form_colocation.events({
-//  "click #creationDeColoc, click #sajouterauneColoc"(event, instance) {
- //   event.preventDefault();
- //   const etatActuel = instance.state.get("new_coloc")
- //   instance.state.set("new_coloc", !etatActuel)
-//  },
-//})
