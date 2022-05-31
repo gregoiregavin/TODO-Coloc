@@ -8,10 +8,11 @@ Template.leaderboard.helpers({
     nomColoc() {
       return Colocations.findOne({ _id: FlowRouter.getParam('colocId') }).nom;
     },
+    membres(){
+      return Colocations.find(
+        { _id: FlowRouter.getParam('colocId') },
+        { "membres.username" : {}},
+        { "membres.score" : {}},
+      );
+    },
 });
-
-// Template.membre.helpers({
-//     membres(){
-//         return Colocations.find({ colocId: FlowRouter.getParam('colocId') }).membres;
-//     },
-// });

@@ -33,7 +33,6 @@ Template.form_piece.events({
       dateCreation: new Date(),
       colocId: FlowRouter.getParam('colocId'),
     });
-
     target.text.value = '';
   }
 })
