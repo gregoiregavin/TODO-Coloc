@@ -26,24 +26,24 @@ Template.app.onCreated(function () {
     this.state.set('ecran', 'dashboard');
 });
 
-Template.app.helpers({
-    isLeaderboard() {
-        const inst = Template.instance();
-        if (inst.state.get('ecran') == "leaderboard") {
-            return inst.state.get('ecran');
-        } else {
-            return null;
-        }
-    },
-    isDashboard() {
-        const inst = Template.instance();
-        if (inst.state.get('ecran') == "dashboard") {
-            return inst.state.get('ecran');
-        } else {
-            return null;
-        }
-    }
-})
+// Template.app.helpers({
+//     isLeaderboard() {
+//         const inst = Template.instance();
+//         if (inst.state.get('ecran') == "leaderboard") {
+//             return inst.state.get('ecran');
+//         } else {
+//             return null;
+//         }
+//     },
+//     isDashboard() {
+//         const inst = Template.instance();
+//         if (inst.state.get('ecran') == "dashboard") {
+//             return inst.state.get('ecran');
+//         } else {
+//             return null;
+//         }
+//     }
+// })
 
 Template.app.events({
     'click #dashboard'(event, inst) {

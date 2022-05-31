@@ -5,7 +5,7 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 Template.nav.events({
     "click #leaderboard"() {
-        Meteor.score(
+        Meteor.leaderboard(
             FlowRouter.go('/leaderboard/:colocId')
         );
     },

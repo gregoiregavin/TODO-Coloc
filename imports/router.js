@@ -7,7 +7,7 @@ export const creerRoute = (url, titre, template) => {
     FlowRouter.route(url, {
         name: titre,
         action() {
-            BlazeLayout.render('app', { main: template });
+            this.render('app', { main: template });
         },
     })
 };
