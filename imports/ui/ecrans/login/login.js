@@ -99,6 +99,6 @@ Template.login.events({
 
     Meteor.loginWithPassword(username, password, popMessage("success", "Connexion réussie"))
 
-    FlowRouter.go('coloc', {colocId : colocationDe("Grégoire")})
+    FlowRouter.go('coloc', {colocId : "Jolie Coloc"}) // Ici, j'aurais voulu appeler colocationDe() (Colocations.js)
   },
 });

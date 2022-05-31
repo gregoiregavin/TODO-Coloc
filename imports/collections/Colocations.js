@@ -8,6 +8,6 @@ export const toutesLesColocations = () => {
 }
 
 // Renvoie l'identifiant de la colocation d'un colocataire
-export const colocationDe = (nomColocataire) => {
-    return Colocations.findOne({nom: nomColocataire})._id
-}
+//export const colocationDe = (nomColocataire) => {
+//    return Colocations.findOne({nom: nomColocataire})._id // Comment récupérer la String username, qui est dans un objet user, qui est dans un tableau de membres, qui est dans une coloc ?
+//}
