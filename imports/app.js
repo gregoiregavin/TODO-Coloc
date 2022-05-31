@@ -18,7 +18,7 @@ import { creerRoute } from "./router";
 // Création des routes
 creerRoute('/connection', "connection", "login");
 creerRoute('/colocation/:colocId', "coloc", "dashboard");
-creerRoute('/leaderboard/:colocId', "leaderboard", "leaderboard");
+creerRoute('/leaderboard/:id', "leaderboard", "leaderboard");
 creerRoute('*', "404", "404");
 
 Template.app.onCreated(function () {
