@@ -1,6 +1,7 @@
 <template name="leaderboard">
+    {{> nav}}
     <div class="leaderboard">
-    <h1>{{nomColoc}}</h1>
+        <h1>{{nomColoc}}</h1>
         <table>
             <tr>
                 <th>User</th>
@@ -8,8 +9,8 @@
             </tr>
             <tr>
                 {{#each membre}}
-                    <td>{{> colocation.membre.username}}</td>
-                    <td>{{> colocation.membre.score}}</td>
+                <td>{{> colocation.membre.username}}</td>
+                <td>{{> colocation.membre.score}}</td>
                 {{/each}}
             </tr>
         </table>
