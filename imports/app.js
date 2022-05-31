@@ -21,7 +21,7 @@ creerRoute('/colocation/:colocId', "coloc", "dashboard");
 creerRoute('/leaderboard/:colocId', "leaderboard", "leaderboard");
 creerRoute('*', "404", "404");
 
-Template.app.onCreated(function () {
+/* Template.app.onCreated(function () {
     this.state = new ReactiveDict();
     this.state.set('ecran', 'dashboard');
 });
@@ -52,4 +52,4 @@ Template.app.events({
     'click #leaderboard'(event, inst) {
         inst.state.set('ecran', 'leaderboard');
     }
-});
+}); */
