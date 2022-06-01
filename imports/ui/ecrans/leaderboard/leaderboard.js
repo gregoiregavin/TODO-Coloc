@@ -12,7 +12,8 @@ Template.leaderboard.helpers({
       return Colocations.find(
         { _id: FlowRouter.getParam('colocId') },
         { "membres.username" : 1, "membres.score" : 1 },
-                // { membres : 1},
+        // { membres : 1},
+        // { membres : {"membre.username" : 1}} = only this field
       );
     },
 });
