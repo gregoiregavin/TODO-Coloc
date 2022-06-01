@@ -1,7 +1,5 @@
 # Projet de validation pour cours JavaScript 2
 Séverine Bochatay, Adrien Coulon, Grégoire Gavin
-
-# todo-coloc
  
 # Idée projet : outil pour organiser les tâches ménagères dans une coloc
 
